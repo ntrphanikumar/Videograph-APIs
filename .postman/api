@@ -10,8 +10,8 @@ rootDirectory = postman/collections
 
 [relations.apiDefinition]
 rootDirectory = postman/schemas
-files[] = {"path":"Public APIs/videograph_public_apis.yml","metaData":{}}
+files[] = {"path":"videograph_public_apis.yml","metaData":{}}
 
 [relations.apiDefinition.metaData]
 type = openapi:3
-rootFiles[] = Public APIs/videograph_public_apis.yml
+rootFiles[] = videograph_public_apis.yml
