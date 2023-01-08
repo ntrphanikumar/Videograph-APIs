@@ -43,6 +43,7 @@ components:
       properties:
         url:
           type: string
+          description: Video url
         start_offset:
           type: integer
           format: int64
@@ -104,16 +105,17 @@ components:
           type: string
         value:
           type: string
-    Content:
+    CreateContent:
       description: Content description
       type: object
       required:
-        - title
-        - video
-        - playback_policy
+      - title
+      - video
+      - playback_policy
       properties:
         title:
           type: string
+          description: Content title/name
         description:
           type: string
         video:
@@ -147,6 +149,47 @@ components:
           type: boolean
         save_original_copy:
           type: boolean
+    UpdateContent:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Content title/name
+        description:
+          type: string
+          description: Content description
+        tags:
+          type: array
+          items:
+            type: string
+          description: Content tags
+        metadata:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metadata'
+          description: Content metadata
+        save_original_copy:
+          type: boolean
+          description: Content master copy save flag
+    CreateContentThumbnail:
+      type: object
+      required:
+      - videoPositionInSec
+      - width
+      - height
+      properties:
+        videoPositionInSec:
+          type: integer
+          format: int64
+          description: Position of video 
+        width: 
+          type: integer
+          format: int64
+          description: Width of thumbnail
+        height: 
+          type: integer
+          format: int64
+          description: Height of thumbnail
     SigningKey:
       required:
         - productTypeId
@@ -192,7 +235,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Content'
+              $ref: '#/components/schemas/CreateContent'
       security:
         - basicAuth: []
       parameters:
@@ -384,21 +427,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              example:
-                title: Video title
-                description: Video description
-                tags:
-                  - tag1
-                  - tag2
-                metadata:
-                  - key: abc
-                    value: pqr
-                playback_policy:
-                  - public
-                  - signed
-                save_original_copy: true
-                mp4_support: false
+              $ref: '#/components/schemas/UpdateContent'
       security:
         - basicAuth: []
       parameters:
@@ -523,6 +552,59 @@ paths:
                 message: Deleted video
                 code: 200
   /video/services/api/v1/contents/{CONTENT_ID}/subtitles:
+    post:
+      tags:
+        - Content Subtitles
+      summary: Create Content Subtitle
+      description: >-
+        Associates the provided subtitle for the content with the mentioned
+        `language_code`
+
+
+        If a new subtitle is uploaded with the same `language_code`, existing
+        one is replaced with the new one
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Subtitle'
+      security:
+        - basicAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: CONTENT_ID
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Content UUID
+      responses:
+        '201':
+          description: Created
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: Success
+                message: Updated video details
+                code: 200
+                data:
+                  url: >-
+                    https://d133d5ts749j6w.cloudfront.net/ane/HSHM2586532201040000_ACTA_HD.scc
+                  name: English US
+                  language_code: en_US
+                  support_closed_captions: false
+                  uuid: subtitleid
     get:
       tags:
         - Content Subtitles
@@ -565,64 +647,6 @@ paths:
                     language_code: en_US
                     support_closed_captions: false
                     uuid: subtitleid
-    post:
-      tags:
-        - Content Subtitles
-      summary: Create Content Subtitle
-      description: >-
-        Associates the provided subtitle for the content with the mentioned
-        `language_code`
-
-
-        If a new subtitle is uploaded with the same `language_code`, existing
-        one is replaced with the new one
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                url: www.google.com
-                name: English US
-                language_code: en_US
-                support_closed_captions: false
-      security:
-        - basicAuth: []
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
-        - name: CONTENT_ID
-          in: path
-          schema:
-            type: string
-          required: true
-          description: Content UUID
-      responses:
-        '201':
-          description: Created
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-          content:
-            application/json:
-              schema:
-                type: object
-              example:
-                status: Success
-                message: Updated video details
-                code: 200
-                data:
-                  url: >-
-                    https://d133d5ts749j6w.cloudfront.net/ane/HSHM2586532201040000_ACTA_HD.scc
-                  name: English US
-                  language_code: en_US
-                  support_closed_captions: false
-                  uuid: subtitleid
   /video/services/api/v1/contents/{CONTENT_ID}/subtitles/{SUBTITLE_ID}:
     get:
       tags:
@@ -720,11 +744,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              example:
-                videoPositionInSec: 10
-                width: 100
-                height: 200
+              $ref: '#/components/schemas/CreateContentThumbnail'
       security:
         - basicAuth: []
       parameters:
