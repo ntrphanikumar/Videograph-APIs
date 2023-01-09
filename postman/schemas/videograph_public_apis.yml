@@ -419,14 +419,14 @@ paths:
                                     - url: >-
                                         https://thepaciellogroup.github.io/AT-browser-tests/video/ElephantsDream.mp4
                                 watermark:
-                                    - url: >- 
+                                    - url: >
                                         https://dashboard.videograph.ai/images/logo.svg
 
                                         x_pos: 1564px
                                         y_pos: 74px
                                         opacity: 70%
                                 subtitle:
-                                    - url: >-
+                                    - url: >
                                         https://thepaciellogroup.github.io/AT-browser-tests/video/subtitles-en.vtt
                                         
                                         name: English US
