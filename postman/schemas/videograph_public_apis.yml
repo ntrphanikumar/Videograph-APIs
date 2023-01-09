@@ -43,15 +43,15 @@ components:
             properties:
                 url:
                     type: string
-                    description: Video url
+                    description: Provide a source Video/content url.
                 start_offset:
                     type: integer
                     format: int64
-                    description: Start offset in secs from start of original video
+                    description: Mention clip start time in seconds from start of source video
                 end_offset:
                     type: integer
                     format: int64
-                    description: End offset in secs from end of original video
+                    description: Mention clip end time in seconds from start of source video
         Watermark:
             description: Watermark description
             required:
@@ -62,42 +62,42 @@ components:
             properties:
                 url:
                     type: string
-                    description: Watermark image url
+                    description: Provide source url of the image to be used as watermark. 
                 x_pos:
                     type: string
-                    description: position in px ex 10px
+                    description: X-axis position in pixels ex-10px
                 y_pos:
                     type: string
-                    description: position in px ex 10px
+                    description: Y-axis position in pixels ex-10px
                 x_margin:
                     type: string
-                    description: margin in px or percent ex 10px/10%
+                    description: X-axis margin in pixel or percentage ex-10px/10%
                 y_margin:
                     type: string
-                    description: margin in px or percent ex 10px/10%
+                    description: Y-axis margin in pixel or percentage ex-10px/10%
                 x_align:
                     type: string
-                    description: allowed values left/center/right
+                    description: X-axis alignment, allowed values left/center/right
                     enum:
                         - left
                         - center
                         - right
                 y_align:
                     type: string
-                    description: allowed values top/middle/bottom
+                    description: Y-axis alignment, allowed values top/middle/bottom
                     enum:
                         - top
                         - middle
                         - bottom
                 width:
                     type: string
-                    description: width in px or percent ex 10px/10%
+                    description: Width of the image in pixel or percentage ex-10px/10%
                 height:
                     type: string
-                    description: height in px or percent ex 10px/10%
+                    description: height of the image in pixel or percentage ex-10px/10%
                 opacity:
                     type: string
-                    description: opacity in percent ex 90%
+                    description: Control opacity of the watermark image, mentioned it in percentage ex-90%
         Subtitle:
             description: Subtitle description
             required:
@@ -109,16 +109,16 @@ components:
             properties:
                 url:
                     type: string
-                    description: Subtitle image url
+                    description: Provide source url of Subtitle file.
                 name:
                     type: string
-                    description: Name of subtitle ex - English US
+                    description: Name of subtitle ex-English US
                 language_code:
                     type: string
-                    description: Language codes ex - en_US
+                    description: Mention Language code ex-en_US
                 support_closed_captions:
                     type: boolean
-                    description: Is closed captions (CC) supported
+                    description: Does your subtitle support closed captions (CC), allowed values true/false
         Metadata:
             description: Metadata as key value pairs
             required:
@@ -128,10 +128,10 @@ components:
             properties:
                 key:
                     type: string
-                    description: Any key of choice
+                    description: The constant that defines the data set ex-color
                 value:
                     type: string
-                    description: Meaningful value for key
+                    description: A variable whihc belongs to the data set ex-blue
         CreateContent:
             description: Create content description
             type: object
@@ -142,13 +142,13 @@ components:
             properties:
                 title:
                     type: string
-                    description: Content title/name
+                    description: Provide a title for your content.
                 description:
                     type: string
-                    description: provide Content description for metadata
+                    description: Describe your content.
                 video:
                     type: array
-                    description: Content's Video'
+                    description: Provide the source url to download the content. If you want to create video clips from the video then pass on the start time and end time of the clip along with source url.
                     items:
                         $ref: "#/components/schemas/Video"
                 watermark:
@@ -158,17 +158,17 @@ components:
                         $ref: "#/components/schemas/Watermark"
                 subtitle:
                     type: array
-                    description: Subtitles for video content
+                    description: Add Subtitles to video content
                     items:
                         $ref: "#/components/schemas/Subtitle"
                 tags:
                     type: array
-                    description: Content tags
+                    description: Provide a list of tage that best describe your content.
                     items:
                         type: string
                 metadata:
                     type: array
-                    description: Content metadata as key value pairs
+                    description: Provide content metadata as key value pairs. 
                     items:
                         $ref: "#/components/schemas/Metadata"
                 playback_policy:
@@ -255,12 +255,12 @@ components:
                     description: Content description
                 watermark:
                     type: array
-                    description: Watermark details on video content
+                    description: Add watermark image on video content
                     items:
                         $ref: "#/components/schemas/Watermark"
                 subtitle:
                     type: array
-                    description: Subtitles for video content
+                    description: Add Subtitles to video content
                     items:
                         $ref: "#/components/schemas/Subtitle"
                 tags:
