@@ -425,8 +425,11 @@ paths:
                                       y_pos: 74px
                                       opacity: 70%
                                 subtitle:
-                                    - url: >
-                                        https://thepaciellogroup.github.io/AT-browser-tests/video/subtitles-en.vtt
+                                    - url: > 
+                                        https://dashboard.videograph.ai/images/logo.svg
+                                      x_pos: 1564px
+                                      y_pos: 74px
+                                      opacity: 70%
                                       name: English US
                                       language_code: en_US
                                       support_closed_captions: false
