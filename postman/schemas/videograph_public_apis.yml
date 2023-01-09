@@ -434,8 +434,8 @@ paths:
                                     - Animation
                                     - Video demo
                                 metadata:
-                                    key: color
-                                    value: blue
+                                    - key: color
+                                      value: blue
                                 playback_policy:
                                     - public
                                 mp4_support: true
