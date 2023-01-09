@@ -145,7 +145,7 @@ components:
                     description: Content title/name
                 description:
                     type: string
-                    description: Content description
+                    description: provide Content description for metadata
                 video:
                     type: array
                     description: Content's Video'
