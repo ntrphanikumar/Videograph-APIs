@@ -427,10 +427,9 @@ paths:
                                 subtitle:
                                     - url: >
                                         https://thepaciellogroup.github.io/AT-browser-tests/video/subtitles-en.vtt
-                                        
-                                        name: English US
-                                        language_code: en_US
-                                        support_closed_captions: false
+                                      name: English US
+                                      language_code: en_US
+                                      support_closed_captions: false
                                 tags:
                                     - Animation
                                     - Video demo
