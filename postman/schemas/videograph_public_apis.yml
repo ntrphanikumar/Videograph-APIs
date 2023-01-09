@@ -2,18 +2,18 @@ openapi: 3.0.0
 info:
     title: Videograph API
     description: >-
-        This is a public workspace for Videograph APIs
+        *This is a public workspace for Videograph APIs
 
 
-        ## Overview
+        ** Overview **
 
 
-        This workspace is meant to do the work of defining and evolving collections
+        *This workspace is meant to do the work of defining and evolving collections
         for documenting, mocking, testing, and integrating. All APIs and their
         collections are all work in progress
 
 
-        ## Authentication & Authorization
+        ** Authentication & Authorization **
 
 
         All the apis are secured/protected and can be accessed only by using api
@@ -395,7 +395,7 @@ paths:
                 - Contents
             summary: Create Content
             description: >-
-                **API to create a content (video/audio) from the asset url which is
+                **Use this endpoint to create a content (video/audio) from the asset url which is
                 publicly accessible**
 
                 *   Make sure you have created an API access token. You can create one by Signup/Signin into Videograph.
