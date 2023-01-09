@@ -417,7 +417,7 @@ paths:
                                 description: This is a demo video
                                 content:
                                     - url: >-
-                                        https://thepaciellogroup.github.io/AT-browser-tests/video/ElephantsDream.mp4
+                                        https://d19nx8bm4jzw4h.cloudfront.net/Tears-of-steel.mp4
                                 watermark:
                                     - url: > 
                                         https://d19nx8bm4jzw4h.cloudfront.net/videograph_logo.png
@@ -426,7 +426,7 @@ paths:
                                       opacity: 70%
                                 subtitle:
                                     - url: > 
-                                        https://thepaciellogroup.github.io/AT-browser-tests/video/subtitles-en.vtt
+                                        https://d19nx8bm4jzw4h.cloudfront.net/Tears-of-steel.srt
                                       name: English US
                                       language_code: en_US
                                       support_closed_captions: false
