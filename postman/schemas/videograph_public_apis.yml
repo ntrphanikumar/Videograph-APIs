@@ -137,7 +137,7 @@ components:
             type: object
             required:
                 - title
-                - video
+                - content
                 - playback_policy
             properties:
                 title:
@@ -146,7 +146,7 @@ components:
                 description:
                     type: string
                     description: Describe your content.
-                video:
+                content:
                     type: array
                     description: Provide the source url to download the content. If you want to create video clips from the video then pass on the start time and end time of the clip along with source url.
                     items:
@@ -415,7 +415,7 @@ paths:
                             example:
                                 title: Demo Video
                                 description: This is a demo video
-                                video:
+                                content:
                                     - url: >-
                                         https://thepaciellogroup.github.io/AT-browser-tests/video/ElephantsDream.mp4
                                 watermark:
