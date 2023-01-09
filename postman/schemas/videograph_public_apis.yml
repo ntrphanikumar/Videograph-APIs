@@ -47,9 +47,11 @@ components:
                 start_offset:
                     type: integer
                     format: int64
+                    description: Start offset in secs from start of original video
                 end_offset:
                     type: integer
                     format: int64
+                    description: End offset in secs from end of original video
         Watermark:
             description: Watermark description
             required:
@@ -60,24 +62,42 @@ components:
             properties:
                 url:
                     type: string
+                    description: Watermark image url
                 x_pos:
                     type: string
+                    description: position in px ex 10px
                 y_pos:
                     type: string
+                    description: position in px ex 10px
                 x_margin:
                     type: string
+                    description: margin in px or percent ex 10px/10%
                 y_margin:
                     type: string
+                    description: margin in px or percent ex 10px/10%
                 x_align:
                     type: string
+                    description: allowed values left/center/right
+                    enum:
+                        - left
+                        - center
+                        - right
                 y_align:
                     type: string
+                    description: allowed values top/middle/bottom
+                    enum:
+                        - top
+                        - middle
+                        - bottom
                 width:
                     type: string
+                    description: width in px or percent ex 10px/10%
                 height:
                     type: string
+                    description: height in px or percent ex 10px/10%
                 opacity:
                     type: string
+                    description: opacity in percent ex 90%
         Subtitle:
             description: Subtitle description
             required:
@@ -89,13 +109,18 @@ components:
             properties:
                 url:
                     type: string
+                    description: Subtitle image url
                 name:
                     type: string
+                    description: Name of subtitle ex - English US
                 language_code:
                     type: string
+                    description: Language codes ex - en_US
                 support_closed_captions:
                     type: boolean
+                    description: Is closed captions (CC) supported
         Metadata:
+            description: Metadata as key value pairs
             required:
                 - key
                 - value
@@ -103,10 +128,12 @@ components:
             properties:
                 key:
                     type: string
+                    description: Any key of choice
                 value:
                     type: string
+                    description: Meaningful value for key
         CreateContent:
-            description: Content description
+            description: Create content description
             type: object
             required:
                 - title
@@ -118,28 +145,35 @@ components:
                     description: Content title/name
                 description:
                     type: string
+                    description: Content description
                 video:
                     type: array
+                    description: Content's Video'
                     items:
                         $ref: "#/components/schemas/Video"
                 watermark:
                     type: array
+                    description: Watermark details on video content
                     items:
                         $ref: "#/components/schemas/Watermark"
                 subtitle:
                     type: array
+                    description: Subtitles for video content
                     items:
                         $ref: "#/components/schemas/Subtitle"
                 tags:
                     type: array
+                    description: Content tags
                     items:
                         type: string
                 metadata:
                     type: array
+                    description: Content metadata as key value pairs
                     items:
                         $ref: "#/components/schemas/Metadata"
                 playback_policy:
                     type: array
+                    description: Playback policies. Allowed are public, signed or both
                     items:
                         type: string
                         enum:
@@ -147,8 +181,10 @@ components:
                             - signed
                 mp4_support:
                     type: boolean
+                    description: Is MP4 generation supported
                 save_original_copy:
                     type: boolean
+                    description: Is original copy to be saved
         UpdateContent:
             type: object
             properties:
@@ -170,7 +206,7 @@ components:
                     description: Content metadata
                 save_original_copy:
                     type: boolean
-                    description: Content master copy save flag
+                    description: Is original copy to be saved
         CreateContentClip:
             type: object
             required:
@@ -216,24 +252,30 @@ components:
                     description: Content title/name
                 description:
                     type: string
+                    description: Content description
                 watermark:
                     type: array
+                    description: Watermark details on video content
                     items:
                         $ref: "#/components/schemas/Watermark"
                 subtitle:
                     type: array
+                    description: Subtitles for video content
                     items:
                         $ref: "#/components/schemas/Subtitle"
                 tags:
                     type: array
+                    description: Content tags
                     items:
                         type: string
                 metadata:
                     type: array
+                    description: Content metadata as key value pairs
                     items:
                         $ref: "#/components/schemas/Metadata"
                 playback_policy:
                     type: array
+                    description: Playback policies. Allowed are public, signed or both
                     items:
                         type: string
                         enum:
@@ -241,8 +283,10 @@ components:
                             - signed
                 mp4_support:
                     type: boolean
+                    description: Is MP4 generation supported
                 save_original_copy:
                     type: boolean
+                    description: Is original copy to be saved
         CreateDirectUpload:
             type: object
             required:
@@ -254,10 +298,10 @@ components:
                 timeout:
                     type: integer
                     format: int64
-                    description: Timeout of the file
+                    description: Timeout of the file in seconds
                 cors_origin:
                     type: string
-                    description: Cors origing
+                    description: Cors origin ex - Allowed domain 
                 content:
                     $ref: "#/components/schemas/CreateDirectUploadContent"
         CreateLiveStream:
@@ -272,32 +316,32 @@ components:
                     description: Name of the livestream
                 region:
                     type: string
-                    description: Region for creation
+                    description: Region for creation ex - us-east-1
                 record:
                     type: boolean
-                    description: Indicates if its livestream or liverecording
+                    description: Indicates if its liverecording (true) or streaming (false)
         UpdateLiveStream:
             type: object
             properties:
                 title:
                     type: string
-                    description: Content title/name
+                    description: Livestream title/name
                 description:
                     type: string
-                    description: Content description
+                    description: Livestream description
                 tags:
                     type: array
+                    description: Livestream tags
                     items:
                         type: string
-                    description: Content tags
                 metadata:
                     type: array
+                    description: Livestream metadata as keyvalue pair
                     items:
                         $ref: "#/components/schemas/Metadata"
-                    description: Content metadata
                 mp4_support:
                     type: boolean
-                    description: Content master copy save flag
+                    description: Is mp4 generation supported
         CreateLiveStreamClip:
             type: object
             required:
@@ -321,8 +365,12 @@ components:
                 productTypeId:
                     type: integer
                     format: int64
+                    enum:
+                        - 1
+                    description: Product type for which key is generated. 1 for Video/Live
                 environmentUUID:
                     type: string
+                    description: Environment's identifier as UUID. Obtained from videograph dashboard
 tags:
     - name: Contents
       description:
@@ -415,9 +463,6 @@ paths:
             description: >-
                 Lists all contents in the api token's organization environment in the
                 order of latest created
-
-
-                ***TODO***: *Paginating the results*
             security:
                 - basicAuth: []
             parameters:
