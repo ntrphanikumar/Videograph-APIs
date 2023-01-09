@@ -2,18 +2,18 @@ openapi: 3.0.0
 info:
     title: Videograph API
     description: >-
-        *This is a public workspace for Videograph APIs
+        This is a public workspace for Videograph APIs
 
 
-        ** Overview **
+        ## Overview
 
 
-        *This workspace is meant to do the work of defining and evolving collections
+        This workspace is meant to do the work of defining and evolving collections
         for documenting, mocking, testing, and integrating. All APIs and their
         collections are all work in progress
 
 
-        ** Authentication & Authorization **
+        ## Authentication & Authorization
 
 
         All the apis are secured/protected and can be accessed only by using api
@@ -163,7 +163,7 @@ components:
                         $ref: "#/components/schemas/Subtitle"
                 tags:
                     type: array
-                    description: Provide a list of tage that best describe your content.
+                    description: Provide a list of tags that best describe your content.
                     items:
                         type: string
                 metadata:
@@ -190,23 +190,23 @@ components:
             properties:
                 title:
                     type: string
-                    description: Content title/name
+                    description: Provide content title.
                 description:
                     type: string
-                    description: Content description
+                    description: Provide content description.
                 tags:
                     type: array
                     items:
                         type: string
-                    description: Content tags
+                    description: Provide Content tags.
                 metadata:
                     type: array
                     items:
                         $ref: "#/components/schemas/Metadata"
-                    description: Content metadata
+                    description: Provide metadata key value pairs. 
                 save_original_copy:
                     type: boolean
-                    description: Is original copy to be saved
+                    description: would u like to save the original copy?. Allowed values are true/false.
         CreateContentClip:
             type: object
             required:
@@ -216,11 +216,11 @@ components:
                 startTimeInSecs:
                     type: integer
                     format: int64
-                    description: Start time of clip in secs of original video
+                    description: Mention clip start time in seconds from start of the video.
                 endTimeInSecs:
                     type: integer
                     format: int64
-                    description: End time of clip in secs of original video
+                    description: Mention clip end time in seconds from start of the video.
         CreateContentThumbnail:
             type: object
             required:
@@ -231,15 +231,15 @@ components:
                 videoPositionInSec:
                     type: integer
                     format: int64
-                    description: Position of video
+                    description: Provide the exact duration of video in seconds at which you wish to create the thumbnail.
                 width:
                     type: integer
                     format: int64
-                    description: Width of thumbnail
+                    description: Specify the Width of thumbnail in pixels.
                 height:
                     type: integer
                     format: int64
-                    description: Height of thumbnail
+                    description: Specify the Height of thumbnail in pixels.
         CreateDirectUploadContent:
             description: Content description
             type: object
@@ -249,10 +249,10 @@ components:
             properties:
                 title:
                     type: string
-                    description: Content title/name
+                    description: Provide a title for your content.
                 description:
                     type: string
-                    description: Content description
+                    description: Describe your content.
                 watermark:
                     type: array
                     description: Add watermark image on video content
@@ -313,7 +313,7 @@ components:
             properties:
                 name:
                     type: string
-                    description: Name of the livestream
+                    description: Provide a name for your livestream.
                 region:
                     type: string
                     description: Region for creation ex - us-east-1
@@ -420,7 +420,7 @@ paths:
                                         https://thepaciellogroup.github.io/AT-browser-tests/video/ElephantsDream.mp4
                                 watermark:
                                     - url: > 
-                                        https://dashboard.videograph.ai/images/logo.svg
+                                        https://d19nx8bm4jzw4h.cloudfront.net/videograph_logo.png
                                       x_pos: 1564px
                                       y_pos: 74px
                                       opacity: 70%
@@ -639,7 +639,7 @@ paths:
                   schema:
                       type: string
                   required: true
-                  description: Content UUID
+                  description: Provide the Content ID as available in Videograph dashboard.
             responses:
                 "200":
                     description: OK
@@ -772,7 +772,7 @@ paths:
                   schema:
                       type: string
                   required: true
-                  description: Content UUID
+                  description: Provide the Content ID as available in Videograph dashboard.
             responses:
                 "200":
                     description: OK
