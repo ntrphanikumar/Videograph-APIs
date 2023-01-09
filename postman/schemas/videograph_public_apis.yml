@@ -398,15 +398,15 @@ paths:
                 **API to create a content (video/audio) from the asset url which is
                 publicly accessible**
 
+                *   Make sure you have created an API access token. You can create one by Signup/Signin into Videograph.
 
-                *   Multiple subtitles of different language codes can be added to the
-                video
+                *   Add subtitles from different languages to your content.
 
-                *   Multiple watermarks can be added
+                *   Add and control watermarks/image overlays settings on your content.
 
-                *   Only part of a video can be transcoded for streaming
+                *   BFor test purposes, 10 seconds duration of uploaded video will be transcoded for streaming
 
-                *   Video can be tagged and meta-data can be linked
+                *   Add tags and meta-data to your content.
             requestBody:
                 content:
                     application/json:
