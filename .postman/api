@@ -10,6 +10,7 @@ rootDirectory = postman/collections
 
 [relations.apiDefinition]
 rootDirectory = postman/schemas
+files[] = {"path":"Overview.yml","metaData":{}}
 files[] = {"path":"videograph_public_apis.yml","metaData":{}}
 
 [relations.apiDefinition.metaData]
