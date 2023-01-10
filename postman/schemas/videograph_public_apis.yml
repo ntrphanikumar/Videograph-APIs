@@ -372,6 +372,8 @@ components:
                     type: string
                     description: Environment's identifier as UUID. Obtained from videograph dashboard
 tags:
+    - name: Overview
+      description: Overview of this page
     - name: Contents
       description:
           Content and its assets (subtitles and thumbnails) management related apis
