@@ -109,7 +109,7 @@ components:
             properties:
                 url:
                     type: string
-                    description: Provide source url of Subtitle file.
+                    description: Provide source url of Subtitle file. Supported formats include SRT & VTT.
                 name:
                     type: string
                     description: Name of subtitle ex-English US
