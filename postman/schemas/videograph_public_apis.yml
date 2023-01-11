@@ -307,11 +307,11 @@ components:
         CreateLiveStream:
             type: object
             required:
-                - name
+                - title
                 - region
                 - record
             properties:
-                name:
+                title:
                     type: string
                     description: Provide a name for your livestream.
                 region:
