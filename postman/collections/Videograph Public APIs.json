@@ -1,0 +1,3206 @@
+{
+	"info": {
+		"_postman_id": "10dcdc63-4a8d-47cd-863b-78ebed6dbeb9",
+		"name": "Videograph Public APIs",
+		"description": "This is a public workspace for Videograph APIs\n\n## Overview\n\nThis workspace is meant to do the work of defining and evolving collections for documenting, mocking, testing, and integrating. All APIs and their collections are all work in progress\n\n## Authentication & Authorization\n\nAll the apis are secured/protected and can be accessed only by using api accesstoken and secret generated from dashboard for an organization's environment.\n\nAn api access token's scope is limited to an organization's environment and so with the APIs we can manage assets within the environment. In addition api token can be granted only limited read/write access to product types which provides authorization",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "19432362-10dcdc63-4a8d-47cd-863b-78ebed6dbeb9"
+	},
+	"item": [
+		{
+			"name": "Videos",
+			"item": [
+				{
+					"name": "Create Content",
+					"id": "944f36de-9658-4436-ba5d-4283d4903a4d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"sed adipisicing\",\n  \"content\": [\n    {\n      \"url\": \"culpa dolor in\",\n      \"start_offset\": 59621013,\n      \"end_offset\": 50386863\n    },\n    {\n      \"url\": \"veniam sed culpa\",\n      \"start_offset\": 23358542,\n      \"end_offset\": -41185302\n    }\n  ],\n  \"playback_policy\": [\n    \"signed\",\n    \"public\"\n  ],\n  \"description\": \"Ut aute ullamco laborum non\",\n  \"watermark\": [\n    {\n      \"url\": \"fugiat culpa officia\",\n      \"x_pos\": \"sit dolor culpa ullamco ut\",\n      \"y_pos\": \"commodo in\",\n      \"x_margin\": \"aute mollit\",\n      \"y_margin\": \"pariatur Ut laboris aute mollit\",\n      \"x_align\": \"center\",\n      \"y_align\": \"middle\",\n      \"width\": \"fugiat sed do sunt\",\n      \"height\": \"consectetur occaecat non ad\",\n      \"opacity\": \"adipisicing elit consectetur qui\"\n    },\n    {\n      \"url\": \"incididunt\",\n      \"x_pos\": \"cupidatat irure eiusmod\",\n      \"y_pos\": \"et dolore\",\n      \"x_margin\": \"esse\",\n      \"y_margin\": \"ea non\",\n      \"x_align\": \"left\",\n      \"y_align\": \"bottom\",\n      \"width\": \"officia eu amet elit\",\n      \"height\": \"ea cillum\",\n      \"opacity\": \"incididunt exe\"\n    }\n  ],\n  \"subtitle\": [\n    {\n      \"url\": \"eu\",\n      \"name\": \"labore c\",\n      \"language_code\": \"pariatur irure\",\n      \"support_closed_captions\": true\n    },\n    {\n      \"url\": \"minim et in\",\n      \"name\": \"voluptate et occaecat\",\n      \"language_code\": \"ad proident consectetur\",\n      \"support_closed_captions\": true\n    }\n  ],\n  \"tags\": [\n    \"quis commodo nulla in\",\n    \"ea in est proident exe\"\n  ],\n  \"metadata\": [\n    {\n      \"key\": \"commodo\",\n      \"value\": \"nisi l\"\n    },\n    {\n      \"key\": \"ut aliqua dolor\",\n      \"value\": \"nisi officia est Excepteur\"\n    }\n  ],\n  \"mp4_support\": true,\n  \"save_original_copy\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/contents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"contents"
+							]
+						},
+						"description": "**Use this endpoint to create a content (video/audio) from the asset url which is publicly accessible**\n*   Make sure you have created an API access token. You can create one by Signup/Signin into Videograph.\n*   Add subtitles from different languages to your content.\n*   Add and control watermarks/image overlays settings on your content.\n*   BFor test purposes, 10 seconds duration of uploaded video will be transcoded for streaming\n*   Add tags and meta-data to your content."
+					},
+					"response": [
+						{
+							"id": "060aed1f-686c-4d20-bb85-c872526fe0c8",
+							"name": "Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"Ut amet\",\n  \"content\": [\n    {\n      \"url\": \"reprehenderit ut dolor aliqua\",\n      \"start_offset\": 40842807,\n      \"end_offset\": -26120402\n    },\n    {\n      \"url\": \"nis\",\n      \"start_offset\": -18758663,\n      \"end_offset\": -56358965\n    }\n  ],\n  \"playback_policy\": [\n    \"public\",\n    \"public\"\n  ],\n  \"description\": \"ex magna\",\n  \"watermark\": [\n    {\n      \"url\": \"sint sed\",\n      \"x_pos\": \"dolore\",\n      \"y_pos\": \"in minim ut\",\n      \"x_margin\": \"esse tempor\",\n      \"y_margin\": \"Duis voluptate eu sunt eiusmod\",\n      \"x_align\": \"left\",\n      \"y_align\": \"top\",\n      \"width\": \"sed eiusmod do\",\n      \"height\": \"veniam nisi irure\",\n      \"opacity\": \"sint\"\n    },\n    {\n      \"url\": \"in ex Excepteur\",\n      \"x_pos\": \"sit aliquip anim\",\n      \"y_pos\": \"ad anim mollit aliquip\",\n      \"x_margin\": \"est\",\n      \"y_margin\": \"eu magna ut\",\n      \"x_align\": \"right\",\n      \"y_align\": \"top\",\n      \"width\": \"quis et\",\n      \"height\": \"adipisicing ea\",\n      \"opacity\": \"aliquip eu\"\n    }\n  ],\n  \"subtitle\": [\n    {\n      \"url\": \"minim sit est ad nisi\",\n      \"name\": \"est consectetur mollit sint\",\n      \"language_code\": \"anim deserunt Excepteur dolor dolore\",\n      \"support_closed_captions\": true\n    },\n    {\n      \"url\": \"dolore et nisi\",\n      \"name\": \"dolor Lorem\",\n      \"language_code\": \"est tempor mollit consequat\",\n      \"support_closed_captions\": true\n    }\n  ],\n  \"tags\": [\n    \"adipisicing \",\n    \"enim consectetur\"\n  ],\n  \"metadata\": [\n    {\n      \"key\": \"tempor officia aliqua\",\n      \"value\": \"dolor ad in laborum eiusmod\"\n    },\n    {\n      \"key\": \"consectetur aliqua veniam ea\",\n      \"value\": \"non dolor Excepteur ipsum\"\n    }\n  ],\n  \"mp4_support\": true,\n  \"save_original_copy\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/contents",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"contents"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"Success\",\n  \"message\": \"Triggered processing of videos.\",\n  \"code\": 201,\n  \"data\": {\n    \"title\": \"Video title\",\n    \"description\": \"Video description\",\n    \"contentId\": \"\",\n    \"tags\": [\n      \"tag1\",\n      \"tag2\"\n    ],\n    \"metadata\": [\n      {\n        \"key\": \"abc\",\n        \"value\": \"pqr\"\n      }\n    ],\n    \"playback_policy\": [\n      \"public\",\n      \"signed\"\n    ],\n    \"mp4_support\": true,\n    \"save_original_copy\": true,\n    \"statusId\": 1,\n    \"status\": \"Processing\",\n    \"duration\": 100,\n    \"thumbnails\": [],\n    \"created_at\": 1673347977713\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "List Contents",
+					"id": "30d148d2-81c6-4496-bf0d-af1ee9c05524",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/contents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"contents"
+							]
+						},
+						"description": "Lists all contents in the api token's organization environment in the order of latest created"
+					},
+					"response": [
+						{
+							"id": "c5ded70e-05db-4827-bdc3-396f9fb20623",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/contents",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"contents"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"code\": 200,\n  \"data\": [\n    {\n      \"contentId\": \"80e05adf-3d5c-4f10-81b7-a9227587b9ca\",\n      \"created_at\": 1653903574348,\n      \"description\": \"Video description\",\n      \"duration\": 1800000,\n      \"playbackPolicy\": [\n        \"public\",\n        \"signed\"\n      ],\n      \"playbackUrl\": \"https://videographond.akamaized.net/enc/eac6be40-42de-40da-8c4a-6d9f2b8b9ba9/ba8693b0-20bb-4c62-8689-72528439ff45/yupptv/2228/master.m3u8\",\n      \"resolution\": \"1080P\",\n      \"status\": \"Ready\",\n      \"statusId\": 3,\n      \"thumbnailUrl\": \"https://videographond.akamaized.net/thumb/enc/eac6be40-42de-40da-8c4a-6d9f2b8b9ba9/ba8693b0-20bb-4c62-8689-72528439ff45/yupptv/2228/mp4/image/0.jpg\",\n      \"title\": \"Phani Test Review\"\n    },\n    {\n      \"contentId\": \"a3334a0e-dee3-4f78-8c42-362fa4113dbc\",\n      \"created_at\": 1653903150379,\n      \"description\": \"Video description\",\n      \"playbackPolicy\": [\n        \"public\",\n        \"signed\"\n      ],\n      \"status\": \"Failed\",\n      \"statusId\": 4,\n      \"thumbnailUrl\": \"\",\n      \"title\": \"Phani Test Review\"\n    },\n    {\n      \"contentId\": \"37d091b5-d4b5-4ac2-922a-659f1ce43f3b\",\n      \"created_at\": 1653902189055,\n      \"description\": \"\",\n      \"playbackPolicy\": [\n        \"\"\n      ],\n      \"status\": \"Failed\",\n      \"statusId\": 4,\n      \"thumbnailUrl\": \"\",\n      \"title\": \"test_video\"\n    },\n    {\n      \"contentId\": \"855a5b1e-a2ab-4a53-88f2-2cfcf5ca726a\",\n      \"created_at\": 1653901844754,\n      \"description\": \"Video description\",\n      \"playbackPolicy\": [\n        \"public\",\n        \"signed\"\n      ],\n      \"status\": \"Failed\",\n      \"statusId\": 4,\n      \"thumbnailUrl\": \"\",\n      \"title\": \"Phani Test Review\"\n    },\n    {\n      \"contentId\": \"efd809c9-8a3e-4603-a486-d8cd8021daa4\",\n      \"created_at\": 1653892933509,\n      \"description\": \"Video description\",\n      \"playbackPolicy\": [\n        \"public\",\n        \"signed\"\n      ],\n      \"status\": \"Failed\",\n      \"statusId\": 4,\n      \"thumbnailUrl\": \"\",\n      \"title\": \"Phani Test Review\"\n    },\n    {\n      \"contentId\": \"61037b69-7e07-4e02-8630-b1b22248d976\",\n      \"created_at\": 1653891136586,\n      \"description\": \"\",\n      \"playbackPolicy\": [\n        \"\"\n      ],\n      \"status\": \"Failed\",\n      \"statusId\": 4,\n      \"thumbnailUrl\": \"\",\n      \"title\": \"test video\"\n    },\n    {\n      \"contentId\": \"298654bf-fdcc-4071-a786-ffecef6d551d\",\n      \"created_at\": 1653733660189,\n      \"description\": \"Video description\",\n      \"playbackPolicy\": [\n        \"public\",\n        \"signed\"\n      ],\n      \"status\": \"Failed\",\n      \"statusId\": 4,\n      \"thumbnailUrl\": \"\",\n      \"title\": \"Phani Test Review\"\n    },\n    {\n      \"contentId\": \"f72cec7a-b412-4ceb-a46e-636cd2e07a40\",\n      \"created_at\": 1653628947976,\n      \"description\": \"Video description\",\n      \"playbackPolicy\": [\n        \"public\",\n        \"signed\"\n      ],\n      \"status\": \"Failed\",\n      \"statusId\": 4,\n      \"thumbnailUrl\": \"\",\n      \"title\": \"Phani Test Review\"\n    },\n    {\n      \"contentId\": \"20c2b219-b8de-40b7-96f0-3338333d9cb8\",\n      \"created_at\": 1653546627935,\n      \"description\": \"Video description\",\n      \"playbackPolicy\": [\n        \"public\",\n        \"signed\"\n      ],\n      \"status\": \"Failed\",\n      \"statusId\": 4,\n      \"thumbnailUrl\": \"\",\n      \"title\": \"Phani Test Review\"\n    },\n    {\n      \"contentId\": \"02d99175-2e35-43db-8003-c37634cbdfdc\",\n      \"created_at\": 1653546496877,\n      \"description\": \"Video description\",\n      \"playbackPolicy\": [\n        \"public\",\n        \"signed\"\n      ],\n      \"status\": \"Failed\",\n      \"statusId\": 4,\n      \"thumbnailUrl\": \"\",\n      \"title\": \"Phani Test Review\"\n    }\n  ],\n  \"message\": \"Fetched all video assets in the environment.\",\n  \"status\": \"Success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Content",
+					"id": "51a99fbb-7bf6-45a6-ac4d-da6d32b95910",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"in\",\n  \"description\": \"et cillum in\",\n  \"tags\": [\n    \"laborum ex amet\",\n    \"qui\"\n  ],\n  \"metadata\": [\n    {\n      \"key\": \"dolor\",\n      \"value\": \"ullamco cupidatat cillum commodo do\"\n    },\n    {\n      \"key\": \"aliqua sit\",\n      \"value\": \"commodo laborum\"\n    }\n  ],\n  \"save_original_copy\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"contents",
+								":CONTENT_ID"
+							],
+							"variable": [
+								{
+									"key": "CONTENT_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) Provide the Content ID as available in Videograph dashboard."
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "464a2f83-fe9c-4caf-be98-dd7ece0344db",
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"deserunt\",\n  \"description\": \"culpa cillum\",\n  \"tags\": [\n    \"dolor elit in eiusmod\",\n    \"labore nisi\"\n  ],\n  \"metadata\": [\n    {\n      \"key\": \"ea dolore sit\",\n      \"value\": \"consectetur elit exercitation\"\n    },\n    {\n      \"key\": \"ullamco\",\n      \"value\": \"esse aliqua elit\"\n    }\n  ],\n  \"save_original_copy\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"contents",
+										":CONTENT_ID"
+									],
+									"variable": [
+										{
+											"key": "CONTENT_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) Provide the Content ID as available in Videograph dashboard."
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"Success\",\n  \"message\": \"Updated video details\",\n  \"code\": 200,\n  \"data\": {\n    \"title\": \"Video title\",\n    \"description\": \"Video description\",\n    \"contentId\": \"\",\n    \"tags\": [\n      \"tag1\",\n      \"tag2\"\n    ],\n    \"metadata\": [\n      {\n        \"key\": \"abc\",\n        \"value\": \"pqr\"\n      }\n    ],\n    \"playback_policy\": [\n      \"public\",\n      \"signed\"\n    ],\n    \"mp4_support\": true,\n    \"save_original_copy\": true,\n    \"statusId\": 1,\n    \"status\": \"Processing\",\n    \"duration\": 100,\n    \"thumbnails\": [],\n    \"created_at\": 0\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Content Details",
+					"id": "afddc8c2-8ba7-488b-b529-575c0f9e6c1e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"contents",
+								":CONTENT_ID"
+							],
+							"variable": [
+								{
+									"key": "CONTENT_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) Content UUID"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "532af19c-1c7d-4f81-bec1-2b6dab09007a",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"contents",
+										":CONTENT_ID"
+									],
+									"variable": [
+										{
+											"key": "CONTENT_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) Content UUID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"Success\",\n  \"message\": \"Updated video details\",\n  \"code\": 200,\n  \"data\": {\n    \"title\": \"Video title\",\n    \"description\": \"Video description\",\n    \"contentId\": \"\",\n    \"tags\": [\n      \"tag1\",\n      \"tag2\"\n    ],\n    \"metadata\": [\n      {\n        \"key\": \"abc\",\n        \"value\": \"pqr\"\n      }\n    ],\n    \"playback_policy\": [\n      \"public\",\n      \"signed\"\n    ],\n    \"mp4_support\": true,\n    \"save_original_copy\": true,\n    \"statusId\": 1,\n    \"status\": \"Processing\",\n    \"duration\": 100,\n    \"thumbnails\": [],\n    \"created_at\": 0\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Content",
+					"id": "4edc8c55-4686-4961-b36f-93a904f36b73",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"contents",
+								":CONTENT_ID"
+							],
+							"variable": [
+								{
+									"key": "CONTENT_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) Content UUID"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "410f23d0-5894-4a3a-811a-a76c046536ad",
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"contents",
+										":CONTENT_ID"
+									],
+									"variable": [
+										{
+											"key": "CONTENT_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) Content UUID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"Success\",\n  \"message\": \"Deleted video\",\n  \"code\": 200\n}"
+						}
+					]
+				}
+			],
+			"id": "6177d48d-7fc0-44dd-be0c-f75ff05b3cc1",
+			"description": "Content and its assets (subtitles and thumbnails) management related apis are grouped here"
+		},
+		{
+			"name": "Live Streams",
+			"item": [
+				{
+					"name": "Create Livestream/Recording",
+					"id": "8d9a7e9b-3cd3-416a-b3fe-16caba4f7c01",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"velit deserunt occaecat\",\n  \"region\": \"tempor\",\n  \"record\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/livestreams",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"livestreams"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "c7272166-44d1-4ce5-8103-49a999428f8f",
+							"name": "Successful response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"velit deserunt occaecat\",\n  \"region\": \"tempor\",\n  \"record\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/livestreams",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"livestreams"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"\""
+						}
+					]
+				},
+				{
+					"name": "List Livestreams",
+					"id": "707fc337-5465-47fd-b46b-c24b2194bdf2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/livestreams?record=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"livestreams"
+							],
+							"query": [
+								{
+									"key": "record",
+									"value": "true",
+									"description": "(Required) true for liverecordings and false for livestreams"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "e6cbca20-6144-478c-a8fb-6f1541b7517b",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/livestreams?record=true",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"livestreams"
+									],
+									"query": [
+										{
+											"key": "record",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"code\": 200,\n  \"data\": [\n    {\n      \"created_at\": 1672715707376,\n      \"status\": \"Initializing\",\n      \"statusId\": 1,\n      \"streamUUID\": \"b7ce0bf9-c139-40f4-9306-753a534912c6\"\n    },\n    {\n      \"created_at\": 1667282138558,\n      \"status\": \"Idle\",\n      \"statusId\": 3,\n      \"streamUUID\": \"cb570748-c6c8-4f5b-8b69-330f6af0bb37\"\n    }\n  ],\n  \"message\": \"List live streams by record: true\",\n  \"status\": \"Success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Livestream",
+					"id": "198fe479-30da-44a0-bd40-244fc02c3c16",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/livestreams/:STREAM_ID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"livestreams",
+								":STREAM_ID"
+							],
+							"variable": [
+								{
+									"key": "STREAM_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "62087887-631b-4e82-8323-2184e45b9c11",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/livestreams/:STREAM_ID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"livestreams",
+										":STREAM_ID"
+									],
+									"variable": [
+										{
+											"key": "STREAM_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"code\": 200,\n  \"data\": {\n    \"createdOn\": 1672715707376,\n    \"metadata\": [\n      {\n        \"key\": \"AdditionalExternalId\",\n        \"value\": \"503962\"\n      }\n    ],\n    \"playbackUrl\": \"http://rc-1.ind.videograph.ai/vglive/503962/playlist_dvr.m3u8\",\n    \"rtmpUrl\": \"rtmp://rc-ingest.us.videograph.ai/rec/J7QCHBsR\",\n    \"rtmpsUrl\": \"\",\n    \"status\": \"Idle\",\n    \"streamKey\": \"503962\",\n    \"streamUUID\": \"b7ce0bf9-c139-40f4-9306-753a534912c6\",\n    \"title\": \"First Channel\"\n  },\n  \"message\": \"Livestream details with id: b7ce0bf9-c139-40f4-9306-753a534912c6\",\n  \"status\": \"Success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Livestream",
+					"id": "7bb5dad8-41c9-4956-8a54-eb131389178e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"pariatur sed ex\",\n  \"description\": \"consectetur amet id anim\",\n  \"tags\": [\n    \"incididunt nisi sit\",\n    \"quis ali\"\n  ],\n  \"metadata\": [\n    {\n      \"key\": \"Ut\",\n      \"value\": \"veniam reprehenderit nulla minim Excepteur\"\n    },\n    {\n      \"key\": \"mollit anim\",\n      \"value\": \"enim sint\"\n    }\n  ],\n  \"mp4_support\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/livestreams/:STREAM_ID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"livestreams",
+								":STREAM_ID"
+							],
+							"variable": [
+								{
+									"key": "STREAM_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "cfd10cd0-8d4d-404d-be81-2293d7f157ab",
+							"name": "Successful response",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"commodo cupidatat eu consectetur\",\n  \"description\": \"irure proident\",\n  \"tags\": [\n    \"aliqua ea fugiat tempor\",\n    \"ut non laboris consectetur\"\n  ],\n  \"metadata\": [\n    {\n      \"key\": \"culpa dolor velit Ut\",\n      \"value\": \"ipsum est incididunt cupidatat\"\n    },\n    {\n      \"key\": \"velit in esse\",\n      \"value\": \"dolor cillum consequat exercita\"\n    }\n  ],\n  \"mp4_support\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/livestreams/:STREAM_ID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"livestreams",
+										":STREAM_ID"
+									],
+									"variable": [
+										{
+											"key": "STREAM_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"\""
+						}
+					]
+				},
+				{
+					"name": "Delete Livestream",
+					"id": "1fef01bf-0493-472a-a72e-6e73637b86ba",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/livestreams/:STREAM_ID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"livestreams",
+								":STREAM_ID"
+							],
+							"variable": [
+								{
+									"key": "STREAM_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "8479ca9e-1896-484d-886e-b11fbe2ff607",
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/livestreams/:STREAM_ID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"livestreams",
+										":STREAM_ID"
+									],
+									"variable": [
+										{
+											"key": "STREAM_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"code\": 200,\n  \"data\": {\n    \"createdOn\": 1672715707376,\n    \"metadata\": [\n      {\n        \"key\": \"AdditionalExternalId\",\n        \"value\": \"503962\"\n      }\n    ],\n    \"playbackUrl\": \"http://rc-1.ind.videograph.ai/vglive/503962/playlist_dvr.m3u8\",\n    \"rtmpUrl\": \"rtmp://rc-ingest.us.videograph.ai/rec/J7QCHBsR\",\n    \"rtmpsUrl\": \"\",\n    \"status\": \"Deleting\",\n    \"streamKey\": \"503962\",\n    \"streamUUID\": \"b7ce0bf9-c139-40f4-9306-753a534912c6\",\n    \"title\": \"First Channel\"\n  },\n  \"message\": \"Updated livestream b7ce0bf9-c139-40f4-9306-753a534912c6\",\n  \"status\": \"Success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Start Livestream",
+					"id": "f966a8a1-1442-45c2-8514-2cd40f24db34",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/livestreams/:STREAM_ID/start",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"livestreams",
+								":STREAM_ID",
+								"start"
+							],
+							"variable": [
+								{
+									"key": "STREAM_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "54935b55-f77d-46c7-9aa9-791d0bbed20d",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/livestreams/:STREAM_ID/start",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"livestreams",
+										":STREAM_ID",
+										"start"
+									],
+									"variable": [
+										{
+											"key": "STREAM_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"code\": 200,\n  \"data\": {\n    \"createdOn\": 1672715707376,\n    \"metadata\": [\n      {\n        \"key\": \"AdditionalExternalId\",\n        \"value\": \"503962\"\n      }\n    ],\n    \"playbackUrl\": \"http://rc-1.ind.videograph.ai/vglive/503962/playlist_dvr.m3u8\",\n    \"rtmpUrl\": \"rtmp://rc-ingest.us.videograph.ai/rec/J7QCHBsR\",\n    \"rtmpsUrl\": \"\",\n    \"status\": \"Processing (Stream Idle)\",\n    \"streamKey\": \"503962\",\n    \"streamUUID\": \"b7ce0bf9-c139-40f4-9306-753a534912c6\",\n    \"title\": \"First Channel\"\n  },\n  \"message\": \"Started livestream with id: b7ce0bf9-c139-40f4-9306-753a534912c6\",\n  \"status\": \"Success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Stop Livestream",
+					"id": "9483f5b7-228c-4260-bbb2-ba50c8771aa8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/livestreams/:STREAM_ID/stop",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"livestreams",
+								":STREAM_ID",
+								"stop"
+							],
+							"variable": [
+								{
+									"key": "STREAM_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "38067476-b7c0-4275-9e6d-20aa30a5c14b",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/livestreams/:STREAM_ID/stop",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"livestreams",
+										":STREAM_ID",
+										"stop"
+									],
+									"variable": [
+										{
+											"key": "STREAM_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"code\": 200,\n  \"data\": {\n    \"createdOn\": 1672715707376,\n    \"metadata\": [\n      {\n        \"key\": \"AdditionalExternalId\",\n        \"value\": \"503962\"\n      }\n    ],\n    \"playbackUrl\": \"http://rc-1.ind.videograph.ai/vglive/503962/playlist_dvr.m3u8\",\n    \"rtmpUrl\": \"rtmp://rc-ingest.us.videograph.ai/rec/J7QCHBsR\",\n    \"rtmpsUrl\": \"\",\n    \"status\": \"Processing (Stream Running)\",\n    \"streamKey\": \"503962\",\n    \"streamUUID\": \"b7ce0bf9-c139-40f4-9306-753a534912c6\",\n    \"title\": \"First Channel\"\n  },\n  \"message\": \"Started livestream with id: b7ce0bf9-c139-40f4-9306-753a534912c6\",\n  \"status\": \"Success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Clip from Recording",
+					"id": "e6a2e0ee-988b-469c-ad9a-a044e320c7cf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"startTime\": -15138805,\n  \"endTime\": 23649278\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/livestreams/:STREAM_ID/clips",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"livestreams",
+								":STREAM_ID",
+								"clips"
+							],
+							"variable": [
+								{
+									"key": "STREAM_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "27c207af-0470-4153-aaf7-10dd872ce7ed",
+							"name": "Successful response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"startTime\": -15138805,\n  \"endTime\": 23649278\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/livestreams/:STREAM_ID/clips",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"livestreams",
+										":STREAM_ID",
+										"clips"
+									],
+									"variable": [
+										{
+											"key": "STREAM_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"\""
+						}
+					]
+				},
+				{
+					"name": "List Livestream Clips",
+					"id": "3ea8bd52-7749-4402-b6a0-a46441f4383e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/livestreams/:STREAM_ID/clips",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"livestreams",
+								":STREAM_ID",
+								"clips"
+							],
+							"variable": [
+								{
+									"key": "STREAM_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "615d7d0e-a089-47dd-b357-3c49080c54d0",
+							"name": "Successful response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/livestreams/:STREAM_ID/clips",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"livestreams",
+										":STREAM_ID",
+										"clips"
+									],
+									"variable": [
+										{
+											"key": "STREAM_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"\""
+						}
+					]
+				}
+			],
+			"id": "6899c00d-0b4f-4812-b71b-7529773997dc",
+			"description": "CRUD on live streams, recordings and clips"
+		},
+		{
+			"name": "Video Direct Uploads",
+			"item": [
+				{
+					"name": "Create direct Upload",
+					"id": "f71b352f-6845-481a-ac71-32afe2a165cb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"file_name\": \"eu\",\n  \"timeout\": 20311421,\n  \"cors_origin\": \"aute incididunt dolor culpa\",\n  \"content\": {\n    \"title\": \"ea sed nulla Ut\",\n    \"playback_policy\": [\n      \"public\",\n      \"public\"\n    ],\n    \"description\": \"fugiat sed\",\n    \"watermark\": [\n      {\n        \"url\": \"in quis ut\",\n        \"x_pos\": \"ex eu consequat\",\n        \"y_pos\": \"magna enim do\",\n        \"x_margin\": \"qui a\",\n        \"y_margin\": \"sunt nulla in\",\n        \"x_align\": \"center\",\n        \"y_align\": \"top\",\n        \"width\": \"est reprehenderit\",\n        \"height\": \"irure et\",\n        \"opacity\": \"in aliqua enim\"\n      },\n      {\n        \"url\": \"adipisicing ullamco culpa\",\n        \"x_pos\": \"dolore ad\",\n        \"y_pos\": \"aliqua laborum adipisicing minim\",\n        \"x_margin\": \"elit incididunt\",\n        \"y_margin\": \"minim cupidatat dolor esse Duis\",\n        \"x_align\": \"left\",\n        \"y_align\": \"bottom\",\n        \"width\": \"mollit laboris veniam et enim\",\n        \"height\": \"cupidatat\",\n        \"opacity\": \"velit\"\n      }\n    ],\n    \"subtitle\": [\n      {\n        \"url\": \"ut irure ut\",\n        \"name\": \"est fugiat\",\n        \"language_code\": \"do incididunt Duis\",\n        \"support_closed_captions\": true\n      },\n      {\n        \"url\": \"dolor sit in\",\n        \"name\": \"consectetur Ut sint in\",\n        \"language_code\": \"pariatur ut do\",\n        \"support_closed_captions\": false\n      }\n    ],\n    \"tags\": [\n      \"veniam Ut sit ullamco\",\n      \"sint cillum\"\n    ],\n    \"metadata\": [\n      {\n        \"key\": \"esse Excepteur Duis in\",\n        \"value\": \"ex commodo occaecat est aliqua\"\n      },\n      {\n        \"key\": \"adipisicing ut p\",\n        \"value\": \"quis in\"\n      }\n    ],\n    \"mp4_support\": true,\n    \"save_original_copy\": true\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/uploads",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"uploads"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "f15fbb9b-07fe-4903-a031-b5b742e52569",
+							"name": "Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"file_name\": \"et Duis\",\n  \"timeout\": 78301890,\n  \"cors_origin\": \"id cillum\",\n  \"content\": {\n    \"title\": \"consectetur n\",\n    \"playback_policy\": [\n      \"signed\",\n      \"signed\"\n    ],\n    \"description\": \"pariatur dolor fugiat sit\",\n    \"watermark\": [\n      {\n        \"url\": \"nulla anim nisi\",\n        \"x_pos\": \"laboris ullamco sint exercitation\",\n        \"y_pos\": \"irure esse des\",\n        \"x_margin\": \"laborum sit in\",\n        \"y_margin\": \"Excepteur nisi\",\n        \"x_align\": \"left\",\n        \"y_align\": \"bottom\",\n        \"width\": \"adipisicing culpa deserunt cupidatat\",\n        \"height\": \"ad qui sint\",\n        \"opacity\": \"exercitation eiusmod dolor\"\n      },\n      {\n        \"url\": \"Excepteur consectetur amet\",\n        \"x_pos\": \"ci\",\n        \"y_pos\": \"cillum mollit dolor quis\",\n        \"x_margin\": \"ullamco Ut labore se\",\n        \"y_margin\": \"ex irure laboris\",\n        \"x_align\": \"left\",\n        \"y_align\": \"bottom\",\n        \"width\": \"magna commodo labo\",\n        \"height\": \"m\",\n        \"opacity\": \"nostrud commodo\"\n      }\n    ],\n    \"subtitle\": [\n      {\n        \"url\": \"commodo occaecat proident\",\n        \"name\": \"Duis quis\",\n        \"language_code\": \"laborum amet\",\n        \"support_closed_captions\": true\n      },\n      {\n        \"url\": \"velit commodo cillum\",\n        \"name\": \"dolore exercitation Excepteur in minim\",\n        \"language_code\": \"consectetur Duis\",\n        \"support_closed_captions\": true\n      }\n    ],\n    \"tags\": [\n      \"voluptate dolor ex esse\",\n      \"dolore sunt\"\n    ],\n    \"metadata\": [\n      {\n        \"key\": \"id culpa sed\",\n        \"value\": \"consectetur commodo in\"\n      },\n      {\n        \"key\": \"et dolor anim\",\n        \"value\": \"in laboris\"\n      }\n    ],\n    \"mp4_support\": true,\n    \"save_original_copy\": false\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/uploads",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"uploads"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"zd01Pe2bNpYhxbrwYABgFE01twZdtv4M00kts2i02GhbGjc\",\n  \"url\": \"https://yupptv-metadata.s3.ap-southeast-1.amazonaws.com/phani/config.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220310T110243Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAJ5T7RG5NGGV727JA%2F20220310%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4aa631e30076814c2555b2024b8634064df7c185f5aada4a80ee5ce40411f6a1\",\n  \"cors_origin\": \"https://example.com/\",\n  \"timeout\": 3600,\n  \"status\": \"Waiting\"\n}"
+						}
+					]
+				},
+				{
+					"name": "List All direct uploads",
+					"id": "e28a3604-0343-45b8-a495-7f1aacef7854",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/uploads",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"uploads"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "04cd8508-0c39-46e9-bede-c2e23f16c923",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/uploads",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"uploads"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"zd01Pe2bNpYhxbrwYABgFE01twZdtv4M00kts2i02GhbGjc\",\n    \"url\": \"https://yupptv-metadata.s3.ap-southeast-1.amazonaws.com/phani/config.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220310T110243Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAJ5T7RG5NGGV727JA%2F20220310%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4aa631e30076814c2555b2024b8634064df7c185f5aada4a80ee5ce40411f6a1\",\n    \"cors_origin\": \"https://example.com/\",\n    \"timeout\": 3600,\n    \"status\": \"Waiting\"\n  },\n  {\n    \"id\": \"zd01Pe2bNpYhxbrwYABgFE01twZdtv4M00kts2i02GhbGjc\",\n    \"url\": \"https://yupptv-metadata.s3.ap-southeast-1.amazonaws.com/phani/config.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220310T110243Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAJ5T7RG5NGGV727JA%2F20220310%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4aa631e30076814c2555b2024b8634064df7c185f5aada4a80ee5ce40411f6a1\",\n    \"cors_origin\": \"https://example.com/\",\n    \"timeout\": 3600,\n    \"status\": \"Ready\",\n    \"assetId\": \"assetuuid\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Direct upload",
+					"id": "e59ddbf0-f5f7-47fd-8e20-520b92c5a6c7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/uploads/:UPLOAD_ID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"uploads",
+								":UPLOAD_ID"
+							],
+							"variable": [
+								{
+									"key": "UPLOAD_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "d116dbef-2411-401c-93bf-3a18149bd842",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/uploads/:UPLOAD_ID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"uploads",
+										":UPLOAD_ID"
+									],
+									"variable": [
+										{
+											"key": "UPLOAD_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"zd01Pe2bNpYhxbrwYABgFE01twZdtv4M00kts2i02GhbGjc\",\n  \"url\": \"https://yupptv-metadata.s3.ap-southeast-1.amazonaws.com/phani/config.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220310T110243Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAJ5T7RG5NGGV727JA%2F20220310%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4aa631e30076814c2555b2024b8634064df7c185f5aada4a80ee5ce40411f6a1\",\n  \"cors_origin\": \"https://example.com/\",\n  \"timeout\": 3600,\n  \"status\": \"Waiting\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete/Cancel Upload",
+					"id": "88c008d0-ed31-4489-a401-e8a3cc8d9ff8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/uploads/:UPLOAD_ID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"uploads",
+								":UPLOAD_ID"
+							],
+							"variable": [
+								{
+									"key": "UPLOAD_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "f6628a20-7643-47f9-b5f8-e1122e4af152",
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/uploads/:UPLOAD_ID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"uploads",
+										":UPLOAD_ID"
+									],
+									"variable": [
+										{
+											"key": "UPLOAD_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"zd01Pe2bNpYhxbrwYABgFE01twZdtv4M00kts2i02GhbGjc\",\n  \"url\": \"https://yupptv-metadata.s3.ap-southeast-1.amazonaws.com/phani/config.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220310T110243Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAJ5T7RG5NGGV727JA%2F20220310%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4aa631e30076814c2555b2024b8634064df7c185f5aada4a80ee5ce40411f6a1\",\n  \"cors_origin\": \"https://example.com/\",\n  \"timeout\": 3600,\n  \"status\": \"Cancelled\"\n}"
+						}
+					]
+				}
+			],
+			"id": "13e799aa-561a-4dd8-b8ac-2e15b60cf9cd",
+			"description": "CRUD on content's direct uploades"
+		},
+		{
+			"name": "Video Clips",
+			"item": [
+				{
+					"name": "Create Content clip",
+					"id": "b9261b46-0134-429f-bf1f-acc046011504",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"startTimeInSecs\": 19576131,\n  \"endTimeInSecs\": -97751570\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID/clips",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"contents",
+								":CONTENT_ID",
+								"clips"
+							],
+							"variable": [
+								{
+									"key": "CONTENT_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) Provide the Content ID as available in Videograph dashboard."
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "b7202602-23d2-4197-bbae-1f26c6853000",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"startTimeInSecs\": 19576131,\n  \"endTimeInSecs\": -97751570\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID/clips",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"contents",
+										":CONTENT_ID",
+										"clips"
+									],
+									"variable": [
+										{
+											"key": "CONTENT_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) Provide the Content ID as available in Videograph dashboard."
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"Success\",\n  \"message\": \"Updated video details\",\n  \"code\": 200,\n  \"data\": {\n    \"title\": \"Video title\",\n    \"description\": \"Video description\",\n    \"contentId\": \"\",\n    \"tags\": [\n      \"tag1\",\n      \"tag2\"\n    ],\n    \"metadata\": [\n      {\n        \"key\": \"abc\",\n        \"value\": \"pqr\"\n      }\n    ],\n    \"playback_policy\": [\n      \"public\",\n      \"signed\"\n    ],\n    \"mp4_support\": true,\n    \"save_original_copy\": true,\n    \"statusId\": 1,\n    \"status\": \"Processing\",\n    \"duration\": 100,\n    \"thumbnails\": [],\n    \"created_at\": 0\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "List a content clips",
+					"id": "324e400d-8006-41db-8768-c8eb32ed2063",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID/clips",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"contents",
+								":CONTENT_ID",
+								"clips"
+							],
+							"variable": [
+								{
+									"key": "CONTENT_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) Content UUID"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "4bac8e7e-c6c9-4d5b-ab95-3dcbde5321ee",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID/clips",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"contents",
+										":CONTENT_ID",
+										"clips"
+									],
+									"variable": [
+										{
+											"key": "CONTENT_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) Content UUID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"Success\",\n  \"message\": \"Updated video details\",\n  \"code\": 200,\n  \"data\": [\n    {\n      \"uuid\": \"clip uuid\",\n      \"name\": \"clip name\",\n      \"createdOn\": 0\n    },\n    {\n      \"uuid\": \"clip uuid\",\n      \"name\": \"clip name\",\n      \"createdOn\": 0\n    }\n  ]\n}"
+						}
+					]
+				}
+			],
+			"id": "fe7dc471-2a2a-4da6-b102-a7f62dc208de",
+			"description": "CRUD on content clips"
+		},
+		{
+			"name": "Video Subtitles",
+			"item": [
+				{
+					"name": "Create Content Subtitle",
+					"id": "62ff4a92-13ea-4aa1-99e7-397b772d0e4f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"url\": \"aliqua ad\",\n  \"name\": \"ut laboris magna aliqua\",\n  \"language_code\": \"non est magna laborum\",\n  \"support_closed_captions\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID/subtitles",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"contents",
+								":CONTENT_ID",
+								"subtitles"
+							],
+							"variable": [
+								{
+									"key": "CONTENT_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) Content UUID"
+								}
+							]
+						},
+						"description": "Associates the provided subtitle for the content with the mentioned `language_code`\n\nIf a new subtitle is uploaded with the same `language_code`, existing one is replaced with the new one"
+					},
+					"response": [
+						{
+							"id": "09d4ca03-e5af-4bbb-b09a-0b340175ace0",
+							"name": "Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"url\": \"aliqua ad\",\n  \"name\": \"ut laboris magna aliqua\",\n  \"language_code\": \"non est magna laborum\",\n  \"support_closed_captions\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID/subtitles",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"contents",
+										":CONTENT_ID",
+										"subtitles"
+									],
+									"variable": [
+										{
+											"key": "CONTENT_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) Content UUID"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"Success\",\n  \"message\": \"Updated video details\",\n  \"code\": 200,\n  \"data\": {\n    \"url\": \"https://d133d5ts749j6w.cloudfront.net/ane/HSHM2586532201040000_ACTA_HD.scc\",\n    \"name\": \"English US\",\n    \"language_code\": \"en_US\",\n    \"support_closed_captions\": false,\n    \"uuid\": \"subtitleid\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "List Content subtitles",
+					"id": "9f0b713d-4223-4eba-bc35-b2e89c98fef5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID/subtitles",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"contents",
+								":CONTENT_ID",
+								"subtitles"
+							],
+							"variable": [
+								{
+									"key": "CONTENT_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) Content UUID"
+								}
+							]
+						},
+						"description": "Lists all subtitles associated with a content"
+					},
+					"response": [
+						{
+							"id": "5aaac9eb-5455-4de8-8046-9a77bf4f5011",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID/subtitles",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"contents",
+										":CONTENT_ID",
+										"subtitles"
+									],
+									"variable": [
+										{
+											"key": "CONTENT_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) Content UUID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"Success\",\n  \"message\": \"Updated video details\",\n  \"code\": 200,\n  \"data\": [\n    {\n      \"url\": \"https://d133d5ts749j6w.cloudfront.net/ane/HSHM2586532201040000_ACTA_HD.scc\",\n      \"name\": \"English US\",\n      \"language_code\": \"en_US\",\n      \"support_closed_captions\": false,\n      \"uuid\": \"subtitleid\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Content Subtitle Details",
+					"id": "e414be7b-b6b3-4fdf-9cc8-d97d4f0e390b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID/subtitles/:SUBTITLE_ID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"contents",
+								":CONTENT_ID",
+								"subtitles",
+								":SUBTITLE_ID"
+							],
+							"variable": [
+								{
+									"key": "CONTENT_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) Content UUID"
+								},
+								{
+									"key": "SUBTITLE_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) Subtitle UUID"
+								}
+							]
+						},
+						"description": "Details of the subtitle associated with the content can be retrieved using subtitle uuid"
+					},
+					"response": [
+						{
+							"id": "6fb6f4ad-27cb-45e3-a354-d4e0acafa59b",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID/subtitles/:SUBTITLE_ID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"contents",
+										":CONTENT_ID",
+										"subtitles",
+										":SUBTITLE_ID"
+									],
+									"variable": [
+										{
+											"key": "CONTENT_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) Content UUID"
+										},
+										{
+											"key": "SUBTITLE_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) Subtitle UUID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"Success\",\n  \"message\": \"Updated video details\",\n  \"code\": 200,\n  \"data\": {\n    \"url\": \"https://d133d5ts749j6w.cloudfront.net/ane/HSHM2586532201040000_ACTA_HD.scc\",\n    \"name\": \"English US\",\n    \"language_code\": \"en_US\",\n    \"support_closed_captions\": false,\n    \"uuid\": \"subtitleid\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Content Subtitle",
+					"id": "b582d6cf-fb27-41d0-9ca5-294c34fd6f51",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID/subtitles/:SUBTITLE_ID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"contents",
+								":CONTENT_ID",
+								"subtitles",
+								":SUBTITLE_ID"
+							],
+							"variable": [
+								{
+									"key": "CONTENT_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) Content UUID"
+								},
+								{
+									"key": "SUBTITLE_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) Subtitle UUID"
+								}
+							]
+						},
+						"description": "Content subtitle can be disassociated or removed from a content using subtitle's uuid"
+					},
+					"response": [
+						{
+							"id": "b4dbdd3b-1fad-45d2-866a-ee500add30db",
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID/subtitles/:SUBTITLE_ID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"contents",
+										":CONTENT_ID",
+										"subtitles",
+										":SUBTITLE_ID"
+									],
+									"variable": [
+										{
+											"key": "CONTENT_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) Content UUID"
+										},
+										{
+											"key": "SUBTITLE_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) Subtitle UUID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"Success\",\n  \"message\": \"Updated video details\",\n  \"code\": 200\n}"
+						}
+					]
+				}
+			],
+			"id": "afad965f-7d33-4ef6-9135-88c34225b92a",
+			"description": "CRUD on content's subtitles are listed here"
+		},
+		{
+			"name": "Video Thumbnails",
+			"item": [
+				{
+					"name": "Create and set default thumbnail",
+					"id": "1c0130fa-a764-4691-8d68-e8a76b7375ae",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"videoPositionInSec\": -7235656,\n  \"width\": -11174549,\n  \"height\": -85487636\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID/thumbnails",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"contents",
+								":CONTENT_ID",
+								"thumbnails"
+							],
+							"variable": [
+								{
+									"key": "CONTENT_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) Content UUID"
+								}
+							]
+						},
+						"description": "This is is to create a thumbnail of specified dimensions with the frame of video at the given position in sec. Generated thumbnail gets assigned as default thumbnail immediately to the content"
+					},
+					"response": [
+						{
+							"id": "892b37ef-741a-45e6-a1e1-b83d2d00a56a",
+							"name": "Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"videoPositionInSec\": -7235656,\n  \"width\": -11174549,\n  \"height\": -85487636\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/contents/:CONTENT_ID/thumbnails",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"contents",
+										":CONTENT_ID",
+										"thumbnails"
+									],
+									"variable": [
+										{
+											"key": "CONTENT_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) Content UUID"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"Success\",\n  \"message\": \"Thumbnail created\",\n  \"code\": 201\n}"
+						}
+					]
+				}
+			],
+			"id": "23c43d1d-66f4-4e49-b848-39fe776c7321",
+			"description": "CRUD on content's thumbnail are listed here"
+		},
+		{
+			"name": "URL Signing Keys",
+			"item": [
+				{
+					"name": "Create Signing Key",
+					"id": "897eb03d-d2fb-4c84-ac22-65992c2dffad",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"productTypeId\": 1,\n  \"environmentUUID\": \"velit ex\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/signing-keys",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"signing-keys"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "0af0c022-5d40-4dba-ba59-612c29321308",
+							"name": "Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"productTypeId\": 1,\n  \"environmentUUID\": \"velit ex\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/signing-keys",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"signing-keys"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"Success\",\n  \"message\": \"Generated signing key for environment.\",\n  \"code\": 201,\n  \"data\": {\n    \"uuid\": 1,\n    \"signingKeyId\": \"vxdYecwma5FhGVVT4pyALK9gq4XbPOS9v02Vfp6ZnAj00\",\n    \"privateKey\": \"LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcFFJQkFBS0NBUUVBMDRaY081aUh6dmU3WVVlRHRTNGtNamtCVXh0VXEzK1hpdHlPMGdTbTVtSUdPV0ZNClQ0L2MvVUdkMDFHRllDVUdSMkhPQVhYVTl4TmN3N1pXaytzVUpxWUdnRW9BN3JUZHJoL3RONytjL1AvdGFWTlgKd1dXYWVZSjhLTCtHK2V2cW03TlN3YWwwVG5aaTRqUE1yT1lmWlBjN285aS8vNS9RVk5BN0UrdlVJYUt0dDlLNwo0UTVUazY0L2FqakpxMnU1eW10TTZCMng3dFgvcWNydjVLc3J5dmJBUlVVSzdlSC8vU1JXSXNscDdlMUlNK3NTCnROOUNTeTN3dHNpTkJYQzhZQXlvSmh4SUNrMng3dmtadFpibjVWZW9uMG95VVU5V0NaRU9ZK2tieFFZdUxNYkYKRnoyZXd3K0R3bU9wSWNxVmVBK09nZE1RQ0dPQU9yenp5bXlWOHdJREFRQUJBb0lCQVFDRW43TEd2dzB2ekk0VgpJV1RJUGNUK0pGWGJTTUNld3VJK2M2bXNyclFDc1NWYjV0Q1U5Z3ZHVXRUbEFURVNKa1M0anU4K1pTWUJRSWVpClFub29SbldkQWU0RGsrTGZ5RkZSOHJ5bWZxS3MwcjZGa25ic1VJczVjb0hzZnFIZm8zYTI1d21WV1cwT0lSWkEKNDkrSjdNTjBaN3RpTU8yNUZmZm1wYVRWQ2NFNDBJVVk0VzYranZibExjQ0NIR0ljelJITW1JT01wdEQ5aHgvaAorc0lWV2h2K1FEUlMvRkNzVkhRTXBTQjV5Um15WTUrb0FQODVUeXJSZHl6VWtnOFM3MnY4aXRQWG40SlBxWnpSCnJmZ0p4Rm0zbEpNRGpTdFNBYnR2aWkxU1l5V3ByM2ZBaXZ2VTljeU5jdjhxZ3FZK0hhUG5kaEJGSVJVbkJmL0gKQ1lpcmhCbkJBb0dCQU5WYjIzMGJyNGt5UmxISTZMWEtYMlEvdlhTa1ZSRVRtdFlvWWZ0bkZtYml3Z0laSHFpSgpxbWNxUXg0MGs5azQxSlZLQ2I0RWVmZTNsOENFYklZSFM0cTl5dmR2VlUrWURiRFVEeDFodWJua05NeDFSRVY3CjBGblJaUEhiR3Z5K1ByeitqMUVNdGd5NTNScFQvSGxHR2J5WG1ZYW1nakErRFNyRzFlZW5HV1NoQW9HQkFQM00KcTdob01mR1NzQ1NhNitKYTVxMERtTDRjSWh0ZVg1c0N0aEIwNkZ5MmllUldNdThRQXIwWU9jSnh2Y0J1MW9LaQpBWWhjQUNuNGVHYURHSUJ5dG8rS09uWUVnNCsrR2dYVStmeDZrQkxDd0t1Ykxja3ovTHlOZHVYc25VQ095eEpQCkUxOWg3dis3eU9vRjZEeitITm9FS25MNEcrOTd1QTlib21zeU4xNFRBb0dCQU1NaVh3eitYRDRMZUJybXVFZEQKanBrZVhzVW1ZeExhTGx1OTFWZGNRalhaSUgxUXdpUjh2QmZjcEVRazdDL1lkVDBRMlBZc0creit3ZEQyakZiTQpwejkrTS9xM25Ydk5Zb0FlZ3JCcHA3YW5TODdQVmFDREM5eUowVndOKzVHNjRhQnk1VnJJV0Z3dFJWWUdDRHhXCmE4VjdsWk44Q0VmZENLZmQ4TmNNa2dIaEFvR0JBUEpFVUZzc1l4aGxYT3prVVd6Mk5xSksvNS9odlJFQkNpUXUKOTFwSUxwSnAwTUQ5STR1ZWJlN1JWRGx2VjZGOGJCbXd5ZU8vWm95cDJVeUpzWGJUaWI4RlJQN3BHaWk1WDUvWAppSFhoRE94THFaMWwrTlBLWTJRZGFiVGJJOVMvT2N1VlhqbTdnMmZzZWtJaU4ya1piTE1VTE8wb040cG9QKyt4CkdoNVhoaEN2QW9HQWN0UTc2WWdMNmlwR2lneDlPZDRxd1NST2pSd1BPZWZZVEdhNEk1ZWpZS3B6UDhJL01zTTQKY3FNR1pQT3N6YjlzdTFLRVlPSHp5UkxOcTJwZThvVTY3dm8yeStNS1hzUFJTV2xxWUpjYWFOd3NKczVac0kraQptNUtVQVAybDI5R0JJVWlFcUVndzBKQnJIa0FBb3dTcTdiRm44SUZoL04zNCszN0IvRzhCSEtzPQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=\",\n    \"createdOn\": 1644333573405\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "List Signing Keys",
+					"id": "742ec5fb-72d1-408b-94a7-1cb7bb7b42d5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/signing-keys",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"signing-keys"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "37c9b064-a81d-4cd8-ab10-4a6342ab25ef",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/signing-keys",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"signing-keys"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"Success\",\n  \"message\": \"Lists all signing keys for environment and prooduct.\",\n  \"code\": 200,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"productTypeId\": 1,\n      \"environmentId\": 1,\n      \"signingKeyId\": \"vxdYecwma5FhGVVT4pyALK9gq4XbPOS9v02Vfp6ZnAj00\",\n      \"createdOn\": 1644333573405,\n      \"createdBy\": \"ntrphanikumar@yupptv.com\"\n    },\n    {\n      \"id\": 2,\n      \"productTypeId\": 2,\n      \"environmentId\": 1,\n      \"signingKeyId\": \"4Riv83rZ4EYc3XeMGQt01ME3Z6MOtXAGX6Gy5F9lyFAU\",\n      \"createdOn\": 1644333573405,\n      \"createdBy\": \"ntrphanikumar@yupptv.com\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Signing Key Details",
+					"id": "156b3334-4ca7-4d69-b81f-56701c7d8e4e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/signing-keys/:SIGNING_KEY_ID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"signing-keys",
+								":SIGNING_KEY_ID"
+							],
+							"variable": [
+								{
+									"key": "SIGNING_KEY_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) Signing Key UUID"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "bf388445-b9fe-47d5-a6f1-21a69d2129ed",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/signing-keys/:SIGNING_KEY_ID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"signing-keys",
+										":SIGNING_KEY_ID"
+									],
+									"variable": [
+										{
+											"key": "SIGNING_KEY_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) Signing Key UUID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"Success\",\n  \"message\": \"Lists all signing keys for environment and prooduct.\",\n  \"code\": 200,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"productTypeId\": 1,\n      \"environmentId\": 1,\n      \"signingKeyId\": \"vxdYecwma5FhGVVT4pyALK9gq4XbPOS9v02Vfp6ZnAj00\",\n      \"createdOn\": 1644333573405,\n      \"createdBy\": \"ntrphanikumar@yupptv.com\"\n    },\n    {\n      \"id\": 2,\n      \"productTypeId\": 2,\n      \"environmentId\": 1,\n      \"signingKeyId\": \"4Riv83rZ4EYc3XeMGQt01ME3Z6MOtXAGX6Gy5F9lyFAU\",\n      \"createdOn\": 1644333573405,\n      \"createdBy\": \"ntrphanikumar@yupptv.com\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Signing Key",
+					"id": "53899ede-b89e-46ba-bef2-5fd8fcbc8734",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/video/services/api/v1/signing-keys/:SIGNING_KEY_ID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								"services",
+								"api",
+								"v1",
+								"signing-keys",
+								":SIGNING_KEY_ID"
+							],
+							"variable": [
+								{
+									"key": "SIGNING_KEY_ID",
+									"value": "minim eiusmod est",
+									"description": "(Required) Signing Key UUID"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "69d6a984-7aa4-420d-8756-a03ca1d5130e",
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/video/services/api/v1/signing-keys/:SIGNING_KEY_ID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"video",
+										"services",
+										"api",
+										"v1",
+										"signing-keys",
+										":SIGNING_KEY_ID"
+									],
+									"variable": [
+										{
+											"key": "SIGNING_KEY_ID",
+											"value": "minim eiusmod est",
+											"description": "(Required) Signing Key UUID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"Success\",\n  \"message\": \"Deleted signing key successfully.\",\n  \"code\": 200\n}"
+						}
+					]
+				}
+			],
+			"id": "f2354376-11ab-48dc-9cc6-0cd7c95d4c08",
+			"description": "CRUD on url signing keys"
+		}
+	],
+	"variable": [
+		{
+			"id": "87b78889-6a8b-47f2-8ff3-8335aa25cf7b",
+			"key": "baseUrl",
+			"value": "https://api.videograph.ai",
+			"type": "string"
+		}
+	]
+}

@@ -372,27 +372,28 @@ components:
                     type: string
                     description: Environment's identifier as UUID. Obtained from videograph dashboard
 tags:
-    - name: Contents
+    - name: Videos
       description:
           Content and its assets (subtitles and thumbnails) management related apis
           are grouped here
-    - name: Content Subtitles
-      description: CRUD on content's subtitles are listed here
-    - name: Content Clips
-      description: CRUD on content clips
-    - name: Content Thumbnails
-      description: CRUD on content's thumbnail are listed here
-    - name: Content Direct Uploads
-      description: CRUD on content's direct uploades
-    - name: URL Signing Keys
-      description: CRUD on url signing keys
     - name: Live Streams
       description: CRUD on live streams, recordings and clips
+    - name: Video Direct Uploads
+      description: CRUD on content's direct uploades
+    - name: Video Clips
+      description: CRUD on content clips
+    - name: Video Subtitles
+      description: CRUD on content's subtitles are listed here
+    - name: Video Thumbnails
+      description: CRUD on content's thumbnail are listed here
+    - name: URL Signing Keys
+      description: CRUD on url signing keys
+    
 paths:
     /video/services/api/v1/contents:
         post:
             tags:
-                - Contents
+                - Videos
             summary: Create Content
             description: >-
                 **Use this endpoint to create a content (video/audio) from the asset url which is
@@ -488,7 +489,7 @@ paths:
                                     created_at: 1673347977713
         get:
             tags:
-                - Contents
+                - Videos
             summary: List Contents
             description: >-
                 Lists all contents in the api token's organization environment in the
@@ -624,7 +625,7 @@ paths:
     /video/services/api/v1/contents/{CONTENT_ID}:
         put:
             tags:
-                - Contents
+                - Videos
             summary: Update Content
             requestBody:
                 content:
@@ -678,7 +679,7 @@ paths:
                                     created_at: 0
         get:
             tags:
-                - Contents
+                - Videos
             summary: Get Content Details
             security:
                 - basicAuth: []
@@ -727,7 +728,7 @@ paths:
                                     created_at: 0
         delete:
             tags:
-                - Contents
+                - Videos
             summary: Delete Content
             security:
                 - basicAuth: []
@@ -757,7 +758,7 @@ paths:
     /video/services/api/v1/contents/{CONTENT_ID}/clips:
         post:
             tags:
-                - Content Clips
+                - Video Clips
             summary: Create Content clip
             requestBody:
                 content:
@@ -811,7 +812,7 @@ paths:
                                     created_at: 0
         get:
             tags:
-                - Content Clips
+                - Video Clips
             summary: List a content clips
             security:
                 - basicAuth: []
@@ -848,7 +849,7 @@ paths:
     /video/services/api/v1/contents/{CONTENT_ID}/subtitles:
         post:
             tags:
-                - Content Subtitles
+                - Video Subtitles
             summary: Create Content Subtitle
             description: >-
                 Associates the provided subtitle for the content with the mentioned
@@ -901,7 +902,7 @@ paths:
                                     uuid: subtitleid
         get:
             tags:
-                - Content Subtitles
+                - Video Subtitles
             summary: List Content subtitles
             description: Lists all subtitles associated with a content
             security:
@@ -944,7 +945,7 @@ paths:
     /video/services/api/v1/contents/{CONTENT_ID}/subtitles/{SUBTITLE_ID}:
         get:
             tags:
-                - Content Subtitles
+                - Video Subtitles
             summary: Get Content Subtitle Details
             description: >-
                 Details of the subtitle associated with the content can be retrieved
@@ -989,7 +990,7 @@ paths:
                                     uuid: subtitleid
         delete:
             tags:
-                - Content Subtitles
+                - Video Subtitles
             summary: Delete Content Subtitle
             description: >-
                 Content subtitle can be disassociated or removed from a content using
@@ -1028,7 +1029,7 @@ paths:
     /video/services/api/v1/contents/{CONTENT_ID}/thumbnails:
         post:
             tags:
-                - Content Thumbnails
+                - Video Thumbnails
             summary: Create and set default thumbnail
             description: >-
                 This is is to create a thumbnail of specified dimensions with the frame
@@ -1067,7 +1068,7 @@ paths:
     /video/services/api/v1/uploads:
         post:
             tags:
-                - Content Direct Uploads
+                - Video Direct Uploads
             summary: Create direct Upload
             requestBody:
                 content:
@@ -1108,7 +1109,7 @@ paths:
                                 status: Waiting
         get:
             tags:
-                - Content Direct Uploads
+                - Video Direct Uploads
             summary: List All direct uploads
             security:
                 - basicAuth: []
@@ -1147,7 +1148,7 @@ paths:
     /video/services/api/v1/uploads/{UPLOAD_ID}:
         get:
             tags:
-                - Content Direct Uploads
+                - Video Direct Uploads
             summary: Get Direct upload
             security:
                 - basicAuth: []
@@ -1183,7 +1184,7 @@ paths:
                                 status: Waiting
         delete:
             tags:
-                - Content Direct Uploads
+                - Video Direct Uploads
             summary: Delete/Cancel Upload
             security:
                 - basicAuth: []
