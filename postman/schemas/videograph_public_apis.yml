@@ -62,7 +62,7 @@ components:
             properties:
                 url:
                     type: string
-                    description: Provide source url of the image to be used as watermark. 
+                    description: Provide source url of the image to be used as watermark.
                 x_pos:
                     type: string
                     description: X-axis position in pixels ex-10px
@@ -168,7 +168,7 @@ components:
                         type: string
                 metadata:
                     type: array
-                    description: Provide content metadata as key value pairs. 
+                    description: Provide content metadata as key value pairs.
                     items:
                         $ref: "#/components/schemas/Metadata"
                 playback_policy:
@@ -203,7 +203,7 @@ components:
                     type: array
                     items:
                         $ref: "#/components/schemas/Metadata"
-                    description: Provide metadata key value pairs. 
+                    description: Provide metadata key value pairs.
                 save_original_copy:
                     type: boolean
                     description: would u like to save the original copy?. Allowed values are true/false.
@@ -301,7 +301,7 @@ components:
                     description: Timeout of the file in seconds
                 cors_origin:
                     type: string
-                    description: Cors origin ex - Allowed domain 
+                    description: Cors origin ex - Allowed domain
                 content:
                     $ref: "#/components/schemas/CreateDirectUploadContent"
         CreateLiveStream:
@@ -388,7 +388,7 @@ tags:
       description: CRUD on content's thumbnail are listed here
     - name: URL Signing Keys
       description: CRUD on url signing keys
-    
+
 paths:
     /video/services/api/v1/contents:
         post:
@@ -418,16 +418,16 @@ paths:
                                 description: This is a demo video
                                 content:
                                     - url: >-
-                                        https://d19nx8bm4jzw4h.cloudfront.net/Tears-of-steel.mp4
+                                          https://d19nx8bm4jzw4h.cloudfront.net/Tears-of-steel.mp4
                                 watermark:
-                                    - url: > 
-                                        https://d19nx8bm4jzw4h.cloudfront.net/videograph_logo.png
+                                    - url: >
+                                          https://d19nx8bm4jzw4h.cloudfront.net/videograph_logo.png
                                       x_pos: 1564px
                                       y_pos: 74px
                                       opacity: 70%
                                 subtitle:
-                                    - url: > 
-                                        https://d19nx8bm4jzw4h.cloudfront.net/Tears-of-steel.srt
+                                    - url: >
+                                          https://d19nx8bm4jzw4h.cloudfront.net/Tears-of-steel.srt
                                       name: English US
                                       language_code: en_US
                                       support_closed_captions: false
@@ -442,7 +442,7 @@ paths:
                                 mp4_support: true
                                 save_original_copy: false
                                 test_video: true
-                                
+
             security:
                 - basicAuth: []
             parameters:
@@ -755,6 +755,453 @@ paths:
                                 status: Success
                                 message: Deleted video
                                 code: 200
+    /video/services/api/v1/livestreams:
+        post:
+            tags:
+                - Live Streams
+            summary: Create Livestream/Recording
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/CreateLiveStream"
+            security:
+                - basicAuth: []
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json: {}
+        get:
+            tags:
+                - Live Streams
+            summary: List Livestreams
+            security:
+                - basicAuth: []
+            parameters:
+                - name: record
+                  in: query
+                  description: true for liverecordings and false for livestreams
+                  required: true
+                  schema:
+                      type: boolean
+            responses:
+                "200":
+                    description: OK
+                    headers:
+                        Content-Type:
+                            schema:
+                                type: string
+                                example: application/json
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                            example:
+                                code: 200
+                                data:
+                                    - created_at: 1672715707376
+                                      status: Initializing
+                                      statusId: 1
+                                      streamUUID: b7ce0bf9-c139-40f4-9306-753a534912c6
+                                    - created_at: 1667282138558
+                                      status: Idle
+                                      statusId: 3
+                                      streamUUID: cb570748-c6c8-4f5b-8b69-330f6af0bb37
+                                message: "List live streams by record: true"
+                                status: Success
+    /video/services/api/v1/livestreams/{STREAM_ID}:
+        get:
+            tags:
+                - Live Streams
+            summary: Get Livestream
+            security:
+                - basicAuth: []
+            parameters:
+                - name: STREAM_ID
+                  in: path
+                  schema:
+                      type: string
+                  required: true
+            responses:
+                "200":
+                    description: OK
+                    headers:
+                        Content-Type:
+                            schema:
+                                type: string
+                                example: application/json
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                            example:
+                                code: 200
+                                data:
+                                    createdOn: 1672715707376
+                                    metadata:
+                                        - key: AdditionalExternalId
+                                          value: "503962"
+                                    playbackUrl: >-
+                                        http://rc-1.ind.videograph.ai/vglive/503962/playlist_dvr.m3u8
+                                    rtmpUrl: rtmp://rc-ingest.us.videograph.ai/rec/J7QCHBsR
+                                    rtmpsUrl: ""
+                                    status: Idle
+                                    streamKey: "503962"
+                                    streamUUID: b7ce0bf9-c139-40f4-9306-753a534912c6
+                                    title: First Channel
+                                message: >-
+                                    Livestream details with id:
+                                    b7ce0bf9-c139-40f4-9306-753a534912c6
+                                status: Success
+        put:
+            tags:
+                - Live Streams
+            summary: Update Livestream
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/UpdateLiveStream"
+            security:
+                - basicAuth: []
+            parameters:
+                - name: STREAM_ID
+                  in: path
+                  schema:
+                      type: string
+                  required: true
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json: {}
+        delete:
+            tags:
+                - Live Streams
+            summary: Delete Livestream
+            security:
+                - basicAuth: []
+            parameters:
+                - name: STREAM_ID
+                  in: path
+                  schema:
+                      type: string
+                  required: true
+            responses:
+                "200":
+                    description: OK
+                    headers:
+                        Content-Type:
+                            schema:
+                                type: string
+                                example: application/json
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                            example:
+                                code: 200
+                                data:
+                                    createdOn: 1672715707376
+                                    metadata:
+                                        - key: AdditionalExternalId
+                                          value: "503962"
+                                    playbackUrl: >-
+                                        http://rc-1.ind.videograph.ai/vglive/503962/playlist_dvr.m3u8
+                                    rtmpUrl: rtmp://rc-ingest.us.videograph.ai/rec/J7QCHBsR
+                                    rtmpsUrl: ""
+                                    status: Deleting
+                                    streamKey: "503962"
+                                    streamUUID: b7ce0bf9-c139-40f4-9306-753a534912c6
+                                    title: First Channel
+                                message: Updated livestream b7ce0bf9-c139-40f4-9306-753a534912c6
+                                status: Success
+    /video/services/api/v1/livestreams/{STREAM_ID}/start:
+        post:
+            tags:
+                - Live Streams
+            summary: Start Livestream
+            requestBody:
+                content: {}
+            security:
+                - basicAuth: []
+            parameters:
+                - name: STREAM_ID
+                  in: path
+                  schema:
+                      type: string
+                  required: true
+            responses:
+                "200":
+                    description: OK
+                    headers:
+                        Content-Type:
+                            schema:
+                                type: string
+                                example: application/json
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                            example:
+                                code: 200
+                                data:
+                                    createdOn: 1672715707376
+                                    metadata:
+                                        - key: AdditionalExternalId
+                                          value: "503962"
+                                    playbackUrl: >-
+                                        http://rc-1.ind.videograph.ai/vglive/503962/playlist_dvr.m3u8
+                                    rtmpUrl: rtmp://rc-ingest.us.videograph.ai/rec/J7QCHBsR
+                                    rtmpsUrl: ""
+                                    status: Processing (Stream Idle)
+                                    streamKey: "503962"
+                                    streamUUID: b7ce0bf9-c139-40f4-9306-753a534912c6
+                                    title: First Channel
+                                message: >-
+                                    Started livestream with id:
+                                    b7ce0bf9-c139-40f4-9306-753a534912c6
+                                status: Success
+    /video/services/api/v1/livestreams/{STREAM_ID}/stop:
+        post:
+            tags:
+                - Live Streams
+            summary: Stop Livestream
+            requestBody:
+                content: {}
+            security:
+                - basicAuth: []
+            parameters:
+                - name: STREAM_ID
+                  in: path
+                  schema:
+                      type: string
+                  required: true
+            responses:
+                "200":
+                    description: OK
+                    headers:
+                        Content-Type:
+                            schema:
+                                type: string
+                                example: application/json
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                            example:
+                                code: 200
+                                data:
+                                    createdOn: 1672715707376
+                                    metadata:
+                                        - key: AdditionalExternalId
+                                          value: "503962"
+                                    playbackUrl: >-
+                                        http://rc-1.ind.videograph.ai/vglive/503962/playlist_dvr.m3u8
+                                    rtmpUrl: rtmp://rc-ingest.us.videograph.ai/rec/J7QCHBsR
+                                    rtmpsUrl: ""
+                                    status: Processing (Stream Running)
+                                    streamKey: "503962"
+                                    streamUUID: b7ce0bf9-c139-40f4-9306-753a534912c6
+                                    title: First Channel
+                                message: >-
+                                    Started livestream with id:
+                                    b7ce0bf9-c139-40f4-9306-753a534912c6
+                                status: Success
+    /video/services/api/v1/livestreams/{STREAM_ID}/clips:
+        post:
+            tags:
+                - Live Streams
+            summary: Create Clip from Recording
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/CreateLiveStreamClip"
+            security:
+                - basicAuth: []
+            parameters:
+                - name: STREAM_ID
+                  in: path
+                  schema:
+                      type: string
+                  required: true
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json: {}
+        get:
+            tags:
+                - Live Streams
+            summary: List Livestream Clips
+            security:
+                - basicAuth: []
+            parameters:
+                - name: STREAM_ID
+                  in: path
+                  schema:
+                      type: string
+                  required: true
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json: {}
+    /video/services/api/v1/uploads:
+        post:
+            tags:
+                - Video Direct Uploads
+            summary: Create direct Upload
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/CreateDirectUpload"
+            security:
+                - basicAuth: []
+            parameters:
+                - name: Content-Type
+                  in: header
+                  schema:
+                      type: string
+                  example: application/json
+                - name: Accept
+                  in: header
+                  schema:
+                      type: string
+                  example: application/json
+            responses:
+                "201":
+                    description: Created
+                    headers:
+                        Content-Type:
+                            schema:
+                                type: string
+                                example: application/json
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                            example:
+                                id: zd01Pe2bNpYhxbrwYABgFE01twZdtv4M00kts2i02GhbGjc
+                                url: >-
+                                    https://yupptv-metadata.s3.ap-southeast-1.amazonaws.com/phani/config.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220310T110243Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAJ5T7RG5NGGV727JA%2F20220310%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4aa631e30076814c2555b2024b8634064df7c185f5aada4a80ee5ce40411f6a1
+                                cors_origin: https://example.com/
+                                timeout: 3600
+                                status: Waiting
+        get:
+            tags:
+                - Video Direct Uploads
+            summary: List All direct uploads
+            security:
+                - basicAuth: []
+            parameters:
+                - name: Accept
+                  in: header
+                  schema:
+                      type: string
+                  example: application/json
+            responses:
+                "200":
+                    description: OK
+                    headers:
+                        Content-Type:
+                            schema:
+                                type: string
+                                example: application/json
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                            example:
+                                - id: zd01Pe2bNpYhxbrwYABgFE01twZdtv4M00kts2i02GhbGjc
+                                  url: >-
+                                      https://yupptv-metadata.s3.ap-southeast-1.amazonaws.com/phani/config.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220310T110243Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAJ5T7RG5NGGV727JA%2F20220310%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4aa631e30076814c2555b2024b8634064df7c185f5aada4a80ee5ce40411f6a1
+                                  cors_origin: https://example.com/
+                                  timeout: 3600
+                                  status: Waiting
+                                - id: zd01Pe2bNpYhxbrwYABgFE01twZdtv4M00kts2i02GhbGjc
+                                  url: >-
+                                      https://yupptv-metadata.s3.ap-southeast-1.amazonaws.com/phani/config.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220310T110243Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAJ5T7RG5NGGV727JA%2F20220310%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4aa631e30076814c2555b2024b8634064df7c185f5aada4a80ee5ce40411f6a1
+                                  cors_origin: https://example.com/
+                                  timeout: 3600
+                                  status: Ready
+                                  assetId: assetuuid
+    /video/services/api/v1/uploads/{UPLOAD_ID}:
+        get:
+            tags:
+                - Video Direct Uploads
+            summary: Get Direct upload
+            security:
+                - basicAuth: []
+            parameters:
+                - name: Accept
+                  in: header
+                  schema:
+                      type: string
+                  example: application/json
+                - name: UPLOAD_ID
+                  in: path
+                  schema:
+                      type: string
+                  required: true
+            responses:
+                "200":
+                    description: OK
+                    headers:
+                        Content-Type:
+                            schema:
+                                type: string
+                                example: application/json
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                            example:
+                                id: zd01Pe2bNpYhxbrwYABgFE01twZdtv4M00kts2i02GhbGjc
+                                url: >-
+                                    https://yupptv-metadata.s3.ap-southeast-1.amazonaws.com/phani/config.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220310T110243Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAJ5T7RG5NGGV727JA%2F20220310%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4aa631e30076814c2555b2024b8634064df7c185f5aada4a80ee5ce40411f6a1
+                                cors_origin: https://example.com/
+                                timeout: 3600
+                                status: Waiting
+        delete:
+            tags:
+                - Video Direct Uploads
+            summary: Delete/Cancel Upload
+            security:
+                - basicAuth: []
+            parameters:
+                - name: Accept
+                  in: header
+                  schema:
+                      type: string
+                  example: application/json
+                - name: UPLOAD_ID
+                  in: path
+                  schema:
+                      type: string
+                  required: true
+            responses:
+                "200":
+                    description: OK
+                    headers:
+                        Content-Type:
+                            schema:
+                                type: string
+                                example: application/json
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                            example:
+                                id: zd01Pe2bNpYhxbrwYABgFE01twZdtv4M00kts2i02GhbGjc
+                                url: >-
+                                    https://yupptv-metadata.s3.ap-southeast-1.amazonaws.com/phani/config.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220310T110243Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAJ5T7RG5NGGV727JA%2F20220310%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4aa631e30076814c2555b2024b8634064df7c185f5aada4a80ee5ce40411f6a1
+                                cors_origin: https://example.com/
+                                timeout: 3600
+                                status: Cancelled
     /video/services/api/v1/contents/{CONTENT_ID}/clips:
         post:
             tags:
@@ -1065,159 +1512,6 @@ paths:
                                 status: Success
                                 message: Thumbnail created
                                 code: 201
-    /video/services/api/v1/uploads:
-        post:
-            tags:
-                - Video Direct Uploads
-            summary: Create direct Upload
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: "#/components/schemas/CreateDirectUpload"
-            security:
-                - basicAuth: []
-            parameters:
-                - name: Content-Type
-                  in: header
-                  schema:
-                      type: string
-                  example: application/json
-                - name: Accept
-                  in: header
-                  schema:
-                      type: string
-                  example: application/json
-            responses:
-                "201":
-                    description: Created
-                    headers:
-                        Content-Type:
-                            schema:
-                                type: string
-                                example: application/json
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                            example:
-                                id: zd01Pe2bNpYhxbrwYABgFE01twZdtv4M00kts2i02GhbGjc
-                                url: >-
-                                    https://yupptv-metadata.s3.ap-southeast-1.amazonaws.com/phani/config.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220310T110243Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAJ5T7RG5NGGV727JA%2F20220310%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4aa631e30076814c2555b2024b8634064df7c185f5aada4a80ee5ce40411f6a1
-                                cors_origin: https://example.com/
-                                timeout: 3600
-                                status: Waiting
-        get:
-            tags:
-                - Video Direct Uploads
-            summary: List All direct uploads
-            security:
-                - basicAuth: []
-            parameters:
-                - name: Accept
-                  in: header
-                  schema:
-                      type: string
-                  example: application/json
-            responses:
-                "200":
-                    description: OK
-                    headers:
-                        Content-Type:
-                            schema:
-                                type: string
-                                example: application/json
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                            example:
-                                - id: zd01Pe2bNpYhxbrwYABgFE01twZdtv4M00kts2i02GhbGjc
-                                  url: >-
-                                      https://yupptv-metadata.s3.ap-southeast-1.amazonaws.com/phani/config.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220310T110243Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAJ5T7RG5NGGV727JA%2F20220310%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4aa631e30076814c2555b2024b8634064df7c185f5aada4a80ee5ce40411f6a1
-                                  cors_origin: https://example.com/
-                                  timeout: 3600
-                                  status: Waiting
-                                - id: zd01Pe2bNpYhxbrwYABgFE01twZdtv4M00kts2i02GhbGjc
-                                  url: >-
-                                      https://yupptv-metadata.s3.ap-southeast-1.amazonaws.com/phani/config.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220310T110243Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAJ5T7RG5NGGV727JA%2F20220310%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4aa631e30076814c2555b2024b8634064df7c185f5aada4a80ee5ce40411f6a1
-                                  cors_origin: https://example.com/
-                                  timeout: 3600
-                                  status: Ready
-                                  assetId: assetuuid
-    /video/services/api/v1/uploads/{UPLOAD_ID}:
-        get:
-            tags:
-                - Video Direct Uploads
-            summary: Get Direct upload
-            security:
-                - basicAuth: []
-            parameters:
-                - name: Accept
-                  in: header
-                  schema:
-                      type: string
-                  example: application/json
-                - name: UPLOAD_ID
-                  in: path
-                  schema:
-                      type: string
-                  required: true
-            responses:
-                "200":
-                    description: OK
-                    headers:
-                        Content-Type:
-                            schema:
-                                type: string
-                                example: application/json
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                            example:
-                                id: zd01Pe2bNpYhxbrwYABgFE01twZdtv4M00kts2i02GhbGjc
-                                url: >-
-                                    https://yupptv-metadata.s3.ap-southeast-1.amazonaws.com/phani/config.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220310T110243Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAJ5T7RG5NGGV727JA%2F20220310%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4aa631e30076814c2555b2024b8634064df7c185f5aada4a80ee5ce40411f6a1
-                                cors_origin: https://example.com/
-                                timeout: 3600
-                                status: Waiting
-        delete:
-            tags:
-                - Video Direct Uploads
-            summary: Delete/Cancel Upload
-            security:
-                - basicAuth: []
-            parameters:
-                - name: Accept
-                  in: header
-                  schema:
-                      type: string
-                  example: application/json
-                - name: UPLOAD_ID
-                  in: path
-                  schema:
-                      type: string
-                  required: true
-            responses:
-                "200":
-                    description: OK
-                    headers:
-                        Content-Type:
-                            schema:
-                                type: string
-                                example: application/json
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                            example:
-                                id: zd01Pe2bNpYhxbrwYABgFE01twZdtv4M00kts2i02GhbGjc
-                                url: >-
-                                    https://yupptv-metadata.s3.ap-southeast-1.amazonaws.com/phani/config.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220310T110243Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAJ5T7RG5NGGV727JA%2F20220310%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4aa631e30076814c2555b2024b8634064df7c185f5aada4a80ee5ce40411f6a1
-                                cors_origin: https://example.com/
-                                timeout: 3600
-                                status: Cancelled
     /video/services/api/v1/signing-keys:
         post:
             tags:
@@ -1386,297 +1680,3 @@ paths:
                                 status: Success
                                 message: Deleted signing key successfully.
                                 code: 200
-    /video/services/api/v1/livestreams:
-        post:
-            tags:
-                - Live Streams
-            summary: Create Livestream/Recording
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: "#/components/schemas/CreateLiveStream"
-            security:
-                - basicAuth: []
-            responses:
-                "200":
-                    description: Successful response
-                    content:
-                        application/json: {}
-        get:
-            tags:
-                - Live Streams
-            summary: List Livestreams
-            security:
-                - basicAuth: []
-            parameters:
-                - name: record
-                  in: query
-                  description: true for liverecordings and false for livestreams
-                  required: true
-                  schema:
-                      type: boolean
-            responses:
-                "200":
-                    description: OK
-                    headers:
-                        Content-Type:
-                            schema:
-                                type: string
-                                example: application/json
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                            example:
-                                code: 200
-                                data:
-                                    - created_at: 1672715707376
-                                      status: Initializing
-                                      statusId: 1
-                                      streamUUID: b7ce0bf9-c139-40f4-9306-753a534912c6
-                                    - created_at: 1667282138558
-                                      status: Idle
-                                      statusId: 3
-                                      streamUUID: cb570748-c6c8-4f5b-8b69-330f6af0bb37
-                                message: "List live streams by record: true"
-                                status: Success
-    /video/services/api/v1/livestreams/{STREAM_ID}:
-        get:
-            tags:
-                - Live Streams
-            summary: Get Livestream
-            security:
-                - basicAuth: []
-            parameters:
-                - name: STREAM_ID
-                  in: path
-                  schema:
-                      type: string
-                  required: true
-            responses:
-                "200":
-                    description: OK
-                    headers:
-                        Content-Type:
-                            schema:
-                                type: string
-                                example: application/json
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                            example:
-                                code: 200
-                                data:
-                                    createdOn: 1672715707376
-                                    metadata:
-                                        - key: AdditionalExternalId
-                                          value: "503962"
-                                    playbackUrl: >-
-                                        http://rc-1.ind.videograph.ai/vglive/503962/playlist_dvr.m3u8
-                                    rtmpUrl: rtmp://rc-ingest.us.videograph.ai/rec/J7QCHBsR
-                                    rtmpsUrl: ""
-                                    status: Idle
-                                    streamKey: "503962"
-                                    streamUUID: b7ce0bf9-c139-40f4-9306-753a534912c6
-                                    title: First Channel
-                                message: >-
-                                    Livestream details with id:
-                                    b7ce0bf9-c139-40f4-9306-753a534912c6
-                                status: Success
-        put:
-            tags:
-                - Live Streams
-            summary: Update Livestream
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: "#/components/schemas/UpdateLiveStream"
-            security:
-                - basicAuth: []
-            parameters:
-                - name: STREAM_ID
-                  in: path
-                  schema:
-                      type: string
-                  required: true
-            responses:
-                "200":
-                    description: Successful response
-                    content:
-                        application/json: {}
-        delete:
-            tags:
-                - Live Streams
-            summary: Delete Livestream
-            security:
-                - basicAuth: []
-            parameters:
-                - name: STREAM_ID
-                  in: path
-                  schema:
-                      type: string
-                  required: true
-            responses:
-                "200":
-                    description: OK
-                    headers:
-                        Content-Type:
-                            schema:
-                                type: string
-                                example: application/json
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                            example:
-                                code: 200
-                                data:
-                                    createdOn: 1672715707376
-                                    metadata:
-                                        - key: AdditionalExternalId
-                                          value: "503962"
-                                    playbackUrl: >-
-                                        http://rc-1.ind.videograph.ai/vglive/503962/playlist_dvr.m3u8
-                                    rtmpUrl: rtmp://rc-ingest.us.videograph.ai/rec/J7QCHBsR
-                                    rtmpsUrl: ""
-                                    status: Deleting
-                                    streamKey: "503962"
-                                    streamUUID: b7ce0bf9-c139-40f4-9306-753a534912c6
-                                    title: First Channel
-                                message: Updated livestream b7ce0bf9-c139-40f4-9306-753a534912c6
-                                status: Success
-    /video/services/api/v1/livestreams/{STREAM_ID}/start:
-        post:
-            tags:
-                - Live Streams
-            summary: Start Livestream
-            requestBody:
-                content: {}
-            security:
-                - basicAuth: []
-            parameters:
-                - name: STREAM_ID
-                  in: path
-                  schema:
-                      type: string
-                  required: true
-            responses:
-                "200":
-                    description: OK
-                    headers:
-                        Content-Type:
-                            schema:
-                                type: string
-                                example: application/json
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                            example:
-                                code: 200
-                                data:
-                                    createdOn: 1672715707376
-                                    metadata:
-                                        - key: AdditionalExternalId
-                                          value: "503962"
-                                    playbackUrl: >-
-                                        http://rc-1.ind.videograph.ai/vglive/503962/playlist_dvr.m3u8
-                                    rtmpUrl: rtmp://rc-ingest.us.videograph.ai/rec/J7QCHBsR
-                                    rtmpsUrl: ""
-                                    status: Processing (Stream Idle)
-                                    streamKey: "503962"
-                                    streamUUID: b7ce0bf9-c139-40f4-9306-753a534912c6
-                                    title: First Channel
-                                message: >-
-                                    Started livestream with id:
-                                    b7ce0bf9-c139-40f4-9306-753a534912c6
-                                status: Success
-    /video/services/api/v1/livestreams/{STREAM_ID}/stop:
-        post:
-            tags:
-                - Live Streams
-            summary: Stop Livestream
-            requestBody:
-                content: {}
-            security:
-                - basicAuth: []
-            parameters:
-                - name: STREAM_ID
-                  in: path
-                  schema:
-                      type: string
-                  required: true
-            responses:
-                "200":
-                    description: OK
-                    headers:
-                        Content-Type:
-                            schema:
-                                type: string
-                                example: application/json
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                            example:
-                                code: 200
-                                data:
-                                    createdOn: 1672715707376
-                                    metadata:
-                                        - key: AdditionalExternalId
-                                          value: "503962"
-                                    playbackUrl: >-
-                                        http://rc-1.ind.videograph.ai/vglive/503962/playlist_dvr.m3u8
-                                    rtmpUrl: rtmp://rc-ingest.us.videograph.ai/rec/J7QCHBsR
-                                    rtmpsUrl: ""
-                                    status: Processing (Stream Running)
-                                    streamKey: "503962"
-                                    streamUUID: b7ce0bf9-c139-40f4-9306-753a534912c6
-                                    title: First Channel
-                                message: >-
-                                    Started livestream with id:
-                                    b7ce0bf9-c139-40f4-9306-753a534912c6
-                                status: Success
-    /video/services/api/v1/livestreams/{STREAM_ID}/clips:
-        post:
-            tags:
-                - Live Streams
-            summary: Create Clip from Recording
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: "#/components/schemas/CreateLiveStreamClip"
-            security:
-                - basicAuth: []
-            parameters:
-                - name: STREAM_ID
-                  in: path
-                  schema:
-                      type: string
-                  required: true
-            responses:
-                "200":
-                    description: Successful response
-                    content:
-                        application/json: {}
-        get:
-            tags:
-                - Live Streams
-            summary: List Livestream Clips
-            security:
-                - basicAuth: []
-            parameters:
-                - name: STREAM_ID
-                  in: path
-                  schema:
-                      type: string
-                  required: true
-            responses:
-                "200":
-                    description: Successful response
-                    content:
-                        application/json: {}
