@@ -187,6 +187,8 @@ components:
                     description: Is original copy to be saved
         UpdateContent:
             type: object
+            required:
+                - title
             properties:
                 title:
                     type: string
@@ -320,8 +322,40 @@ components:
                 record:
                     type: boolean
                     description: Indicates if its liverecording (true) or streaming (false)
+                dvrDurationInMins:
+                    type: integer
+                    format: int64
+                    description: Indicates the dvr duration to be availbale during playback
+                tags:
+                    type: array
+                    description: Livestream tags
+                    items:
+                        type: string
+                metadata:
+                    type: array
+                    description: Livestream metadata as keyvalue pair
+                    items:
+                        $ref: "#/components/schemas/Metadata"
+                playback_policy:
+                    type: array
+                    description: Playback policies. Allowed are public, signed or both
+                    items:
+                        type: string
+                        enum:
+                            - public
+                            - signed
+                recordings_playback_policy:
+                    type: array
+                    description: Playback policies for generated recordings. Allowed are public, signed or both
+                    items:
+                        type: string
+                        enum:
+                            - public
+                            - signed
         UpdateLiveStream:
             type: object
+            required:
+                - title
             properties:
                 title:
                     type: string
@@ -334,14 +368,15 @@ components:
                     description: Livestream tags
                     items:
                         type: string
+                dvrDurationInMins:
+                    type: integer
+                    format: int64
+                    description: Indicates the dvr duration to be availbale during playback
                 metadata:
                     type: array
                     description: Livestream metadata as keyvalue pair
                     items:
                         $ref: "#/components/schemas/Metadata"
-                mp4_support:
-                    type: boolean
-                    description: Is mp4 generation supported
         CreateLiveStreamClip:
             type: object
             required:
