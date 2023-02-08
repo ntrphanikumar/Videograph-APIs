@@ -440,7 +440,7 @@ paths:
 
                 *   Add and control watermarks/image overlays settings on your content.
 
-                *   BFor test purposes, 10 seconds duration of uploaded video will be transcoded for streaming
+                *   For test purposes, 10 seconds duration of uploaded video will be transcoded for streaming
 
                 *   Add tags and meta-data to your content.
             requestBody:
