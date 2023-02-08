@@ -316,6 +316,9 @@ components:
                 title:
                     type: string
                     description: Provide a name for your livestream.
+                description:
+                    type: string
+                    description: Livestream description
                 region:
                     type: string
                     description: Region for creation ex - us-east-1
