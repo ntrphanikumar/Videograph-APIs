@@ -879,30 +879,35 @@ paths:
                             schema:
                                 type: string
                                 example: application/json
-                    code: 200
-                    message: Data success
-                    status: Success
-                    data:
-                        contentId: 75615af3-2e97-4c8a-af98-92ab14df0965
-                        created_at: 1676204780126
-                        description: Video description
-                        duration: 0
-                        isAdvanced: true
-                        metadata:
-                            -   key: abc
-                                value: pqr
-                        mp4_support: true
-                        playbackPolicy:
-                            - public
-                            - signed
-                        save_original_copy: false
-                        status: Pending
-                        statusId: 1
-                        tags:
-                            - tag1
-                            - tag2
-                        test_video: false
-                        title: Phani Adv
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                            example:
+                                code: 200
+                                message: Data success
+                                status: Success
+                                data:
+                                    contentId: 75615af3-2e97-4c8a-af98-92ab14df0965
+                                    created_at: 1676204780126
+                                    description: Video description
+                                    duration: 0
+                                    isAdvanced: true
+                                    metadata:
+                                        -   key: abc
+                                            value: pqr
+                                    mp4_support: true
+                                    playbackPolicy:
+                                        - public
+                                        - signed
+                                    save_original_copy: false
+                                    status: Pending
+                                    statusId: 1
+                                    tags:
+                                        - tag1
+                                        - tag2
+                                    test_video: false
+                                    title: Phani Adv
     /video/services/api/v1/contents/{CONTENT_ID}:
         put:
             tags:
