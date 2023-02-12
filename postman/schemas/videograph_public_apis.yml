@@ -185,6 +185,146 @@ components:
                 save_original_copy:
                     type: boolean
                     description: Is original copy to be saved
+        AdvCreateSettings:
+            description: Advance Create Setting
+            type: object
+            required:
+                - duration
+                - start
+            properties:
+                start:
+                    type: integer
+                    format: int64
+                    description: Start position in secs
+                duration: 
+                    type: integer
+                    format: int64
+                    description: Duration in sec
+        AdvCreateVideoOverlayConfig:
+            description: Overlay config
+            type: object
+            required:
+                - h
+                - w
+                - x
+                - y
+            properties:
+                h:
+                    type: integer
+                    format: int64
+                    description: Start position in secs
+                w:
+                    type: integer
+                    format: int64
+                    description: Start position in secs
+                x:
+                    type: integer
+                    format: int64
+                    description: Start position in secs
+                y:
+                    type: integer
+                    format: int64
+                    description: Start position in secs
+        AdvCreateVideo:
+            description: Advance Video Content
+            type: object
+            required:
+                - settings
+                - src
+            properties:
+                layer: 
+                    type: integer
+                    format: int64
+                    description: Layer of the video
+                src:
+                    type: string
+                    description: Video source
+                settings:
+                    $ref: "#/components/schemas/AdvCreateSettings"
+        AdvCreateOverlayDetail:
+            description: Advance video overlay detail
+            type: object
+            properties:
+                layer: 
+                    type: integer
+                    format: int64
+                    description: Layer of the video
+                src:
+                    type: string
+                    description: Video source
+                settings:
+                    $ref: "#/components/schemas/AdvCreateSettings"
+                    description: Settings
+                config:
+                    $ref: "#/components/schemas/AdvCreateVideoOverlayConfig"
+                    description: Config
+                fontfile:
+                    type: string
+                    description: Font file
+                fontcolor:
+                    type: string
+                    description: Font Color
+                fontsize:
+                    type: integer
+                    format: int64
+                    description: Font size
+        AdvCreateOverlay:
+            description: Advance Video Overlay
+            type: object
+            properties:
+                text:
+                    type: array
+                    description: Watermark details on video content
+                    items:
+                        $ref: "#/components/schemas/Watermark"
+                logo:
+                    type: array
+                    description: Watermark details on video content
+                    items:
+                        $ref: "#/components/schemas/Watermark"
+        AdvVideoCreateContent:
+            description: Advance Video Create Content
+            type: object
+            required:
+                - title
+                - video
+                - playback_policy
+            properties:
+                title:
+                    type: string
+                    description: Provide a title for your content.
+                description:
+                    type: string
+                    description: Describe your content.
+                video:
+                    type: array
+                    description: Provide the source url to download the content. If you want to create video clips from the video then pass on the start time and end time of the clip along with source url.
+                    items:
+                        $ref: "#/components/schemas/AdvCreateVideo"
+                overlay:
+                    $ref: "#/components/schemas/AdvCreateOverlay"
+                    description: Watermark details on video content
+                tags:
+                    type: array
+                    description: Provide a list of tags that best describe your content.
+                    items:
+                        type: string
+                metadata:
+                    type: array
+                    description: Provide content metadata as key value pairs.
+                    items:
+                        $ref: "#/components/schemas/Metadata"
+                playback_policy:
+                    type: array
+                    description: Playback policies. Allowed are public, signed or both
+                    items:
+                        type: string
+                        enum:
+                            - public
+                            - signed
+                mp4_support:
+                    type: boolean
+                    description: Is MP4 generation supported
         UpdateContent:
             type: object
             required:
@@ -660,6 +800,109 @@ paths:
                                       title: Phani Test Review
                                 message: Fetched all video assets in the environment.
                                 status: Success
+    /video/services/api/v1/contents/adv:
+        post:
+            tags:
+                - Videos
+            summary: Advance Video Editing
+            description: >-
+                **Use this endpoint to create a content with watermarks and overlays**
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/CreateContent"
+                            example:
+                                title: Phani Adv
+                                description: Video description
+                                tags:
+                                - tag1
+                                - tag2
+                                metadata:
+                                -   key: abc
+                                    value: pqr
+                                playback_policy:
+                                - public
+                                - signed
+                                mp4_support: true
+                                overlay:
+                                    logo:
+                                    -   config:
+                                            h: 240
+                                            w: 120
+                                            x: 0
+                                            y: 0
+                                        layer: 1
+                                        settings:
+                                        duration: 4
+                                        start: 0
+                                        src: https://videographond.akamaized.net/thumb/700x700/enc/yupptv/development/yupptv/3395/mp4/image/1.jpg
+                                    text:
+                                    -   config:
+                                            h: 80
+                                            w: 120
+                                            x: 0
+                                            y: 0
+                                        fontcolor: red
+                                        fontfile: Times New Roman
+                                        fontsize: 80
+                                        layer: 2
+                                        settings:
+                                            duration: 3
+                                            start: 0
+                                        src: Hello adv
+                                video:
+                                    -   layer: 0
+                                        settings:
+                                            duration: 3
+                                            start: 0
+                                        src: https://d19nx8bm4jzw4h.cloudfront.net/Tears-of-steel.mp4
+                                    -   layer: 0
+                                        settings:
+                                            duration: 6
+                                            start: 4
+                                        src: https://d19nx8bm4jzw4h.cloudfront.net/Tears-of-steel.mp4
+
+            security:
+                - basicAuth: []
+            parameters:
+                - name: Accept
+                  in: header
+                  schema:
+                      type: string
+                  example: application/json
+            responses:
+                "200":
+                    description: OK
+                    headers:
+                        Content-Type:
+                            schema:
+                                type: string
+                                example: application/json
+                    code: 200
+                    message: Data success
+                    status: Success
+                    data:
+                        contentId: 75615af3-2e97-4c8a-af98-92ab14df0965
+                        created_at: 1676204780126
+                        description: Video description
+                        duration: 0
+                        isAdvanced: true
+                        metadata:
+                            -   key: abc
+                                value: pqr
+                        mp4_support: true
+                        playbackPolicy:
+                            - public
+                            - signed
+                        save_original_copy: false
+                        status: Pending
+                        statusId: 1
+                        tags:
+                            - tag1
+                            - tag2
+                        test_video: false
+                        title: Phani Adv
     /video/services/api/v1/contents/{CONTENT_ID}:
         put:
             tags:
