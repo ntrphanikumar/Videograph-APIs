@@ -811,7 +811,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: "#/components/schemas/CreateContent"
+                            $ref: "#/components/schemas/AdvVideoCreateContent"
                             example:
                                 title: Phani Adv
                                 description: Video description
