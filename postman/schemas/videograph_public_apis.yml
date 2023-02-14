@@ -189,17 +189,17 @@ components:
             description: Advance Create Setting
             type: object
             required:
-                - duration
+                - end
                 - start
             properties:
                 start:
                     type: integer
                     format: int64
                     description: Start position in secs
-                duration: 
+                end: 
                     type: integer
                     format: int64
-                    description: Duration in sec
+                    description: End position in secs
         AdvCreateVideoOverlayConfig:
             description: Overlay config
             type: object
@@ -834,7 +834,7 @@ paths:
                                             y: 0
                                         layer: 1
                                         settings:
-                                        duration: 4
+                                        end: 4
                                         start: 0
                                         src: https://videographond.akamaized.net/thumb/700x700/enc/yupptv/development/yupptv/3395/mp4/image/1.jpg
                                     text:
@@ -848,7 +848,7 @@ paths:
                                         fontsize: 80
                                         layer: 2
                                         settings:
-                                            duration: 3
+                                            end: 3
                                             start: 0
                                         src: Hello adv
                                 video:
@@ -859,7 +859,7 @@ paths:
                                         src: https://d19nx8bm4jzw4h.cloudfront.net/Tears-of-steel.mp4
                                     -   layer: 0
                                         settings:
-                                            duration: 6
+                                            end: 6
                                             start: 4
                                         src: https://d19nx8bm4jzw4h.cloudfront.net/Tears-of-steel.mp4
 
