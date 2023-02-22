@@ -352,9 +352,13 @@ components:
         CreateContentClip:
             type: object
             required:
+                - title
                 - startTimeInSecs
                 - endTimeInSecs
             properties:
+                title:
+                    type: string
+                    description: Clips title.
                 startTimeInSecs:
                     type: integer
                     format: int64
@@ -523,9 +527,13 @@ components:
         CreateLiveStreamClip:
             type: object
             required:
+                - title
                 - startTime
                 - endTime
             properties:
+                title:
+                    type: string
+                    description: Clips title.
                 startTime:
                     type: integer
                     format: int64
