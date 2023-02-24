@@ -14,4 +14,3 @@ files[] = {"path":"videograph_public_apis.yml","metaData":{}}
 
 [relations.apiDefinition.metaData]
 type = openapi:3
-rootFiles[] = videograph_public_apis.yml
