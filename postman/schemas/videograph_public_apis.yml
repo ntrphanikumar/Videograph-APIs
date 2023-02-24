@@ -212,19 +212,19 @@ components:
                 h:
                     type: integer
                     format: int64
-                    description: Start position in secs
+                    description: Height in px of overlay. Ex 50
                 w:
                     type: integer
                     format: int64
-                    description: Start position in secs
+                    description: Weight in px of overlay. Ex 50
                 x:
                     type: integer
                     format: int64
-                    description: Start position in secs
+                    description: X axis position from left top corner. Ex 10
                 y:
                     type: integer
                     format: int64
-                    description: Start position in secs
+                    description: Y axis position from left top corner. Ex 10
         AdvCreateVideo:
             description: Advance Video Content
             type: object
