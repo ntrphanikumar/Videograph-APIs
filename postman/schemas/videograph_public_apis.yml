@@ -274,14 +274,14 @@ components:
             properties:
                 text:
                     type: array
-                    description: Watermark details on video content
+                    description: Overlay texts to display
                     items:
-                        $ref: "#/components/schemas/Watermark"
+                        $ref: "#/components/schemas/AdvCreateOverlayDetail"
                 logo:
                     type: array
-                    description: Watermark details on video content
+                    description: Overlay image or videos to display
                     items:
-                        $ref: "#/components/schemas/Watermark"
+                        $ref: "#/components/schemas/AdvCreateOverlayDetail"
         AdvVideoCreateContent:
             description: Advance Video Create Content
             type: object
