@@ -359,6 +359,19 @@ components:
                 title:
                     type: string
                     description: Clips title.
+                description:
+                    type: string
+                    description: Describe your content.
+                tags:
+                    type: array
+                    description: Provide a list of tags that best describe your clip.
+                    items:
+                        type: string
+                metadata:
+                    type: array
+                    description: Provide clip metadata as key value pairs.
+                    items:
+                        $ref: "#/components/schemas/Metadata"
                 startTimeInSecs:
                     type: integer
                     format: int64
@@ -438,6 +451,22 @@ components:
             required:
                 - file_name
             properties:
+                title:
+                    type: string
+                    description: Provide a title for your content.
+                description:
+                    type: string
+                    description: Describe your content.
+                tags:
+                    type: array
+                    description: Provide a list of tags that best describe your content.
+                    items:
+                        type: string
+                metadata:
+                    type: array
+                    description: Provide content metadata as key value pairs.
+                    items:
+                        $ref: "#/components/schemas/Metadata"
                 file_name:
                     type: string
                     description: Name of the file
@@ -534,6 +563,19 @@ components:
                 title:
                     type: string
                     description: Clips title.
+                description:
+                    type: string
+                    description: Describe your content.
+                tags:
+                    type: array
+                    description: Provide a list of tags that best describe your clip.
+                    items:
+                        type: string
+                metadata:
+                    type: array
+                    description: Provide clip metadata as key value pairs.
+                    items:
+                        $ref: "#/components/schemas/Metadata"
                 startTime:
                     type: integer
                     format: int64
