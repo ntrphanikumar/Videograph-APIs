@@ -325,6 +325,52 @@ components:
                 mp4_support:
                     type: boolean
                     description: Is MP4 generation supported
+        SocialClipContentSection:
+            description: Social Clip Content
+            type: object
+            required:
+                - url
+            properties:
+                url:
+                    type: string
+                    description: MP4 Video Source
+        SocialClipCreateContent:
+            description: Social Clip Video Create Content
+            type: object
+            required:
+                - title
+                - video
+                - playback_policy
+            properties:
+                title:
+                    type: string
+                    description: Provide a title for your content.
+                description:
+                    type: string
+                    description: Describe your content.
+                content:
+                    type: array
+                    description: Provide the source url to download the content. If you want to create video clips from the video then pass on the start time and end time of the clip along with source url.
+                    items:
+                        $ref: "#/components/schemas/SocialClipContentSection"
+                tags:
+                    type: array
+                    description: Provide a list of tags that best describe your content.
+                    items:
+                        type: string
+                metadata:
+                    type: array
+                    description: Provide content metadata as key value pairs.
+                    items:
+                        $ref: "#/components/schemas/Metadata"
+                playback_policy:
+                    type: array
+                    description: Playback policies. Allowed are public, signed or both
+                    items:
+                        type: string
+                        enum:
+                            - public
+                            - signed
         UpdateContent:
             type: object
             required:
@@ -942,6 +988,72 @@ paths:
                                         - tag2
                                     test_video: false
                                     title: Phani Adv
+    /video/services/api/v1/contents/social_clip:
+        post:
+            tags:
+                - Videos
+            summary: Social Clip
+            description: >-
+                **Use this endpoint to create a social clip video**
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/SocialClipCreateContent"
+                            example:
+                                title: Social Clip Test
+                                description: Video description
+                                tags:
+                                - tag1
+                                - tag2
+                                metadata:
+                                -   key: abc
+                                    value: pqr
+                                playback_policy:
+                                - public
+                                - signed
+                                content:
+                                    -   url: https://d19nx8bm4jzw4h.cloudfront.net/Tears-of-steel.mp4
+
+            security:
+                - basicAuth: []
+            parameters:
+                - name: Accept
+                  in: header
+                  schema:
+                      type: string
+                  example: application/json
+            responses:
+                "200":
+                    description: OK
+                    headers:
+                        Content-Type:
+                            schema:
+                                type: string
+                                example: application/json
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                            example:
+                                code: 200
+                                message: Data success
+                                status: Success
+                                data:
+                                    category: SocialClip
+                                    contentId: 702c325b-5c57-4162-924e-8accbef622b0
+                                    created_at: 1678796834550
+                                    description: ''
+                                    duration: 0
+                                    isAdvanced: false
+                                    isSocialClip: true
+                                    metadata: []
+                                    playbackPolicy:
+                                        - public
+                                    status: Pending
+                                    statusId: 1
+                                    test_video: false
+                                    title: Social Clip Test
     /video/services/api/v1/contents/{CONTENT_ID}:
         put:
             tags:
