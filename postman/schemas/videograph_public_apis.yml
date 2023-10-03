@@ -1349,98 +1349,98 @@ paths:
                                     title: First Channel
                                 message: Updated livestream b7ce0bf9-c139-40f4-9306-753a534912c6
                                 status: Success
-    /video/services/api/v1/livestreams/{STREAM_ID}/start:
-        post:
-            tags:
-                - Live Streams
-            summary: Start Livestream
-            requestBody:
-                content: {}
-            security:
-                - basicAuth: []
-            parameters:
-                - name: STREAM_ID
-                  in: path
-                  schema:
-                      type: string
-                  required: true
-            responses:
-                "200":
-                    description: OK
-                    headers:
-                        Content-Type:
-                            schema:
-                                type: string
-                                example: application/json
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                            example:
-                                code: 200
-                                data:
-                                    createdOn: 1672715707376
-                                    metadata:
-                                        - key: AdditionalExternalId
-                                          value: "503962"
-                                    playbackUrl: >-
-                                        http://rc-1.ind.videograph.ai/vglive/503962/playlist_dvr.m3u8
-                                    rtmpUrl: rtmp://rc-ingest.us.videograph.ai/rec/J7QCHBsR
-                                    rtmpsUrl: ""
-                                    status: Processing (Stream Idle)
-                                    streamKey: "503962"
-                                    streamUUID: b7ce0bf9-c139-40f4-9306-753a534912c6
-                                    title: First Channel
-                                message: >-
-                                    Started livestream with id:
-                                    b7ce0bf9-c139-40f4-9306-753a534912c6
-                                status: Success
-    /video/services/api/v1/livestreams/{STREAM_ID}/stop:
-        post:
-            tags:
-                - Live Streams
-            summary: Stop Livestream
-            requestBody:
-                content: {}
-            security:
-                - basicAuth: []
-            parameters:
-                - name: STREAM_ID
-                  in: path
-                  schema:
-                      type: string
-                  required: true
-            responses:
-                "200":
-                    description: OK
-                    headers:
-                        Content-Type:
-                            schema:
-                                type: string
-                                example: application/json
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                            example:
-                                code: 200
-                                data:
-                                    createdOn: 1672715707376
-                                    metadata:
-                                        - key: AdditionalExternalId
-                                          value: "503962"
-                                    playbackUrl: >-
-                                        http://rc-1.ind.videograph.ai/vglive/503962/playlist_dvr.m3u8
-                                    rtmpUrl: rtmp://rc-ingest.us.videograph.ai/rec/J7QCHBsR
-                                    rtmpsUrl: ""
-                                    status: Processing (Stream Running)
-                                    streamKey: "503962"
-                                    streamUUID: b7ce0bf9-c139-40f4-9306-753a534912c6
-                                    title: First Channel
-                                message: >-
-                                    Started livestream with id:
-                                    b7ce0bf9-c139-40f4-9306-753a534912c6
-                                status: Success
+    # /video/services/api/v1/livestreams/{STREAM_ID}/start:
+    #     post:
+    #         tags:
+    #             - Live Streams
+    #         summary: Start Livestream
+    #         requestBody:
+    #             content: {}
+    #         security:
+    #             - basicAuth: []
+    #         parameters:
+    #             - name: STREAM_ID
+    #               in: path
+    #               schema:
+    #                   type: string
+    #               required: true
+    #         responses:
+    #             "200":
+    #                 description: OK
+    #                 headers:
+    #                     Content-Type:
+    #                         schema:
+    #                             type: string
+    #                             example: application/json
+    #                 content:
+    #                     application/json:
+    #                         schema:
+    #                             type: object
+    #                         example:
+    #                             code: 200
+    #                             data:
+    #                                 createdOn: 1672715707376
+    #                                 metadata:
+    #                                     - key: AdditionalExternalId
+    #                                       value: "503962"
+    #                                 playbackUrl: >-
+    #                                     http://rc-1.ind.videograph.ai/vglive/503962/playlist_dvr.m3u8
+    #                                 rtmpUrl: rtmp://rc-ingest.us.videograph.ai/rec/J7QCHBsR
+    #                                 rtmpsUrl: ""
+    #                                 status: Processing (Stream Idle)
+    #                                 streamKey: "503962"
+    #                                 streamUUID: b7ce0bf9-c139-40f4-9306-753a534912c6
+    #                                 title: First Channel
+    #                             message: >-
+    #                                 Started livestream with id:
+    #                                 b7ce0bf9-c139-40f4-9306-753a534912c6
+    #                             status: Success
+    # /video/services/api/v1/livestreams/{STREAM_ID}/stop:
+    #     post:
+    #         tags:
+    #             - Live Streams
+    #         summary: Stop Livestream
+    #         requestBody:
+    #             content: {}
+    #         security:
+    #             - basicAuth: []
+    #         parameters:
+    #             - name: STREAM_ID
+    #               in: path
+    #               schema:
+    #                   type: string
+    #               required: true
+    #         responses:
+    #             "200":
+    #                 description: OK
+    #                 headers:
+    #                     Content-Type:
+    #                         schema:
+    #                             type: string
+    #                             example: application/json
+    #                 content:
+    #                     application/json:
+    #                         schema:
+    #                             type: object
+    #                         example:
+    #                             code: 200
+    #                             data:
+    #                                 createdOn: 1672715707376
+    #                                 metadata:
+    #                                     - key: AdditionalExternalId
+    #                                       value: "503962"
+    #                                 playbackUrl: >-
+    #                                     http://rc-1.ind.videograph.ai/vglive/503962/playlist_dvr.m3u8
+    #                                 rtmpUrl: rtmp://rc-ingest.us.videograph.ai/rec/J7QCHBsR
+    #                                 rtmpsUrl: ""
+    #                                 status: Processing (Stream Running)
+    #                                 streamKey: "503962"
+    #                                 streamUUID: b7ce0bf9-c139-40f4-9306-753a534912c6
+    #                                 title: First Channel
+    #                             message: >-
+    #                                 Started livestream with id:
+    #                                 b7ce0bf9-c139-40f4-9306-753a534912c6
+    #                             status: Success
     /video/services/api/v1/livestreams/{STREAM_ID}/clips:
         post:
             tags:
