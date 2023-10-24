@@ -988,20 +988,20 @@ paths:
                                         - tag2
                                     test_video: false
                                     title: Phani Adv
-    /video/services/api/v1/contents/social_clip:
+    /video/services/api/v1/contents/portrait_pro:
         post:
             tags:
                 - Videos
-            summary: Social Clip
+            summary: Portrait PRO
             description: >-
-                **Use this endpoint to create a social clip video**
+                **Use this endpoint to create a portrait pro video**
             requestBody:
                 content:
                     application/json:
                         schema:
                             $ref: "#/components/schemas/SocialClipCreateContent"
                             example:
-                                title: Social Clip Test
+                                title: Portrait PRO Test
                                 description: Video description
                                 tags:
                                 - tag1
@@ -1053,7 +1053,7 @@ paths:
                                     status: Pending
                                     statusId: 1
                                     test_video: false
-                                    title: Social Clip Test
+                                    title: Portrait PRO Test
     /video/services/api/v1/contents/{CONTENT_ID}:
         put:
             tags:
