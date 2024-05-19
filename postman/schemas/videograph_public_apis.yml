@@ -185,6 +185,12 @@ components:
                 save_original_copy:
                     type: boolean
                     description: Is original copy to be saved
+                assetCollectionUUID:
+                    type: string
+                    description: Asset colleciton under which content should be created. Defaults to environment root collection.
+                encodingProfileUUID:
+                    type: string
+                    description: Enconding profile to be used to encode. Defaults to what is mapped to environment.
         AdvCreateSettings:
             description: Advance Create Setting
             type: object
@@ -648,6 +654,183 @@ tags:
       description: CRUD on url signing keys
 
 paths:
+    /video/services/api/v1/contents/paginated:
+        get:
+            tags:
+                - Videos
+            summary: List Contents
+            description: >-
+                Lists all contents in the api token's organization environment in the
+                order of latest created with results paginated
+            security:
+                - basicAuth: []
+            parameters:
+                - name: includeAdditional
+                  in: query
+                  description: Use this to get metadata information also along with basic information
+                  required: false
+                  schema:
+                      type: boolean
+                - name: assetCollectionUUID
+                  in: query
+                  description: To fetch contents under specified asset collection
+                  required: false
+                  schema:
+                      type: string
+                - name: phrase
+                  in: query
+                  description: Search phrase
+                  required: false
+                  schema:
+                      type: string
+                - name: tag
+                  in: query
+                  description: Search only in tags
+                  required: false
+                  schema:
+                      type: string
+                - name: pageSize
+                  in: query
+                  description: Number of items to fetch
+                  required: true
+                  schema:
+                      type: number
+                - name: pageNum
+                  in: query
+                  description: Results from which page should be fetched.
+                  required: true
+                  schema:
+                      type: number
+                - name: Accept
+                  in: header
+                  schema:
+                      type: string
+                  example: application/json
+            responses:
+                "200":
+                    description: OK
+                    headers:
+                        Content-Type:
+                            schema:
+                                type: string
+                                example: application/json
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                            example:
+                                code: 200
+                                data:
+                                    total: 223
+                                    pageSize: 10
+                                    pageNum: 1
+                                    hasContents: true
+                                    contents:
+                                    - contentId: 80e05adf-3d5c-4f10-81b7-a9227587b9ca
+                                      created_at: 1653903574348
+                                      description: Video description
+                                      duration: 1800000
+                                      playbackPolicy:
+                                          - public
+                                          - signed
+                                      playbackUrl: >-
+                                          https://videographond.akamaized.net/enc/eac6be40-42de-40da-8c4a-6d9f2b8b9ba9/ba8693b0-20bb-4c62-8689-72528439ff45/yupptv/2228/master.m3u8
+                                      resolution: 1080P
+                                      status: Ready
+                                      statusId: 3
+                                      thumbnailUrl: >-
+                                          https://videographond.akamaized.net/thumb/enc/eac6be40-42de-40da-8c4a-6d9f2b8b9ba9/ba8693b0-20bb-4c62-8689-72528439ff45/yupptv/2228/mp4/image/0.jpg
+                                      title: Phani Test Review
+                                    - contentId: a3334a0e-dee3-4f78-8c42-362fa4113dbc
+                                      created_at: 1653903150379
+                                      description: Video description
+                                      playbackPolicy:
+                                          - public
+                                          - signed
+                                      status: Failed
+                                      statusId: 4
+                                      thumbnailUrl: ""
+                                      title: Phani Test Review
+                                    - contentId: 37d091b5-d4b5-4ac2-922a-659f1ce43f3b
+                                      created_at: 1653902189055
+                                      description: ""
+                                      playbackPolicy:
+                                          - ""
+                                      status: Failed
+                                      statusId: 4
+                                      thumbnailUrl: ""
+                                      title: test_video
+                                    - contentId: 855a5b1e-a2ab-4a53-88f2-2cfcf5ca726a
+                                      created_at: 1653901844754
+                                      description: Video description
+                                      playbackPolicy:
+                                          - public
+                                          - signed
+                                      status: Failed
+                                      statusId: 4
+                                      thumbnailUrl: ""
+                                      title: Phani Test Review
+                                    - contentId: efd809c9-8a3e-4603-a486-d8cd8021daa4
+                                      created_at: 1653892933509
+                                      description: Video description
+                                      playbackPolicy:
+                                          - public
+                                          - signed
+                                      status: Failed
+                                      statusId: 4
+                                      thumbnailUrl: ""
+                                      title: Phani Test Review
+                                    - contentId: 61037b69-7e07-4e02-8630-b1b22248d976
+                                      created_at: 1653891136586
+                                      description: ""
+                                      playbackPolicy:
+                                          - ""
+                                      status: Failed
+                                      statusId: 4
+                                      thumbnailUrl: ""
+                                      title: test video
+                                    - contentId: 298654bf-fdcc-4071-a786-ffecef6d551d
+                                      created_at: 1653733660189
+                                      description: Video description
+                                      playbackPolicy:
+                                          - public
+                                          - signed
+                                      status: Failed
+                                      statusId: 4
+                                      thumbnailUrl: ""
+                                      title: Phani Test Review
+                                    - contentId: f72cec7a-b412-4ceb-a46e-636cd2e07a40
+                                      created_at: 1653628947976
+                                      description: Video description
+                                      playbackPolicy:
+                                          - public
+                                          - signed
+                                      status: Failed
+                                      statusId: 4
+                                      thumbnailUrl: ""
+                                      title: Phani Test Review
+                                    - contentId: 20c2b219-b8de-40b7-96f0-3338333d9cb8
+                                      created_at: 1653546627935
+                                      description: Video description
+                                      playbackPolicy:
+                                          - public
+                                          - signed
+                                      status: Failed
+                                      statusId: 4
+                                      thumbnailUrl: ""
+                                      title: Phani Test Review
+                                    - contentId: 02d99175-2e35-43db-8003-c37634cbdfdc
+                                      created_at: 1653546496877
+                                      description: Video description
+                                      playbackPolicy:
+                                          - public
+                                          - signed
+                                      status: Failed
+                                      statusId: 4
+                                      thumbnailUrl: ""
+                                      title: Phani Test Review
+                                message: Fetched all paginated assets in the environment.
+                                status: Success
     /video/services/api/v1/contents:
         post:
             tags:
@@ -755,6 +938,12 @@ paths:
             security:
                 - basicAuth: []
             parameters:
+                - name: includeAdditional
+                  in: query
+                  description: Use this to get metadata information also along with basic information
+                  required: false
+                  schema:
+                      type: boolean
                 - name: Accept
                   in: header
                   schema:
