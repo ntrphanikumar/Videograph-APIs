@@ -658,7 +658,7 @@ paths:
         get:
             tags:
                 - Videos
-            summary: List Contents
+            summary: List Paginated Contents
             description: >-
                 Lists all contents in the api token's organization environment in the
                 order of latest created with results paginated
