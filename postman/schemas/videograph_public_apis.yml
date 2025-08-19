@@ -2301,3 +2301,89 @@ paths:
                                 status: Success
                                 message: Deleted signing key successfully.
                                 code: 200
+    /ext/services/api/v1/contents/{CONTENT_ID}:
+        get:
+            tags:
+                - Vidoes
+            summary: Get detailed content information
+            security:
+                - basicAuth: []
+            parameters:
+                - name: CONTENT_ID
+                  in: path
+                  schema:
+                      type: string
+                  required: true
+                  description: Content UUID
+                - name: include
+                  in: query
+                  schema:
+                      type: string
+                  required: false
+                  examples:
+                        thumbnails:
+                            summary: Only Thumbnails
+                            value:
+                                include: thumbnails
+                        subtitles:
+                            summary: Only Subtitles
+                            value:
+                                include: subtitles
+                        thumbnails_subtitles:
+                            summary: Both Thumbnails & Subtitles
+                            value:
+                                include: thumbnails,subtitles
+                  description: Content UUID
+            responses:
+                "200":
+                    description: OK
+                    headers:
+                        Content-Type:
+                            schema:
+                                type: string
+                                example: application/json
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                            example:
+                                status: Success
+                                message: Content details
+                                code: 200
+                                data:
+                                    title: Video title
+                                    description: Video description
+                                    contentId: ""
+                                    tags:
+                                        - tag1
+                                        - tag2
+                                    metadata:
+                                        - key: abc
+                                          value: pqr
+                                    playback_policy:
+                                        - public
+                                        - signed
+                                    mp4_support: true
+                                    save_original_copy: true
+                                    statusId: 1
+                                    status: Processing
+                                    duration: 100
+                                    thumbnails: [
+                                        {
+                                            uuid: "uuid of thumbnail",
+                                            width: null,
+                                            height: null,
+                                            created_on: 0,
+                                            image_url: "url"
+                                        }
+                                    ]
+                                    subtitles: [
+                                        {
+                                            uuid: "uuid of subtitle",
+                                            name: "subtitle name",
+                                            language_code: "en",
+                                            created_on: 0,
+                                            url: "url"
+                                        }
+                                    ]
+                                    created_at: 0
